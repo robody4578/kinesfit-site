@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /orcamento.html
+Disallow: /enviar.php
+
+Sitemap: https://kinesfit.com.br/sitemap.xml
