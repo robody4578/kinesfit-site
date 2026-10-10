@@ -10,7 +10,7 @@ const slug = s => norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
 const waLink = txt => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(txt);
 const TIPO = {"Estações":["uma","estação de musculação"],"Bancos":["um","banco de treino"],"Gaiolas":["uma","gaiola de treino funcional"],"Máquinas":["uma","máquina de musculação"],"Peso Livre":["um","equipamento de peso livre"],"Esteiras":["uma","esteira profissional"],"Spinning":["uma","bike de spinning"],"Ergométricas":["uma","bicicleta ergométrica"],"Elípticos":["um","elíptico"],"Plataforma":["uma","plataforma vibratória"],"Acessórios":["um","acessório de treino"]};
 function tipo(p){ if(/el[ií]ptico/i.test(p.nome)) return TIPO["Elípticos"]; return TIPO[p.sub] || ["um","equipamento fitness"]; }
-function localImg(p){ const m=/\.(jpe?g|png|webp|gif)(\?|$)/i.exec(p.img||""); return "/img/"+p.id+(m?"."+m[1].toLowerCase():".jpg"); }
+function localImg(p){ const m=/\.(jpe?g|png|webp|gif)(\?|$)/i.exec(p.img||""); return "/img/"+(p.imgId||p.id)+(m?"."+m[1].toLowerCase():".jpg"); }
 function altText(p){ return p.nome + " – " + tipo(p)[1] + " | Kinesfit"; }
 function imgTag(p, alt, extra){
   return '<img ' + (extra||"") + ' referrerpolicy="no-referrer" data-pid="' + esc(p.id) + '" data-step="0" src="' + esc(localImg(p)) + '" alt="' + esc(alt) + '" onerror="imgFail(this)">';
