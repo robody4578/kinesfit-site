@@ -23,10 +23,12 @@ section{padding:72px 0}
 /* header */
 header{position:sticky;top:0;z-index:50;background:var(--petroleo);color:#fff;box-shadow:0 2px 14px rgba(0,0,0,.18)}
 .hbar{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{display:flex;align-items:center;gap:10px}
-.logo svg{width:40px;height:40px;flex:none}
-.logo b{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:27px;letter-spacing:.06em}
-.logo b i{font-style:normal;color:var(--azul)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{width:44px;height:44px;flex:none}
+.lw{display:flex;flex-direction:column;line-height:1}
+.lw b{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:400;font-size:28px;letter-spacing:.01em;color:#fff}
+.lw b i{font-style:normal;color:var(--vinho)}
+.lw small{font-family:'Barlow',sans-serif;font-weight:500;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--azul);margin-top:5px}
 nav ul{list-style:none;display:flex;gap:4px;align-items:center}
 nav li{position:relative}
 nav a.top,nav button.top{display:block;padding:10px 14px;font-weight:500;font-size:15px;border-radius:8px;color:#fff}
