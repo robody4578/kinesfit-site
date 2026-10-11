@@ -9,7 +9,7 @@ let mem = [];
 function load(){ try{ const j = JSON.parse(localStorage.getItem(KEY)||"null"); if(Array.isArray(j)) return j.filter(x=>x && x.k); }catch(e){} return mem; }
 let items = load();
 function save(){ mem = items; try{ localStorage.setItem(KEY, JSON.stringify(items)); }catch(e){} }
-const prod = id => equipamentos.find(p=>p.id===id);
+const prod = id => equipamentos.find(p=>p.id===id||p.idAntigo===id);
 const nameOf = it => it.id ? (prod(it.id)||{nome:it.id}).nome : it.n;
 const total = () => items.reduce((a,b)=>a+(b.q||1),0);
 const clampQ = v => Math.max(1, Math.min(999, parseInt(v,10)||1));

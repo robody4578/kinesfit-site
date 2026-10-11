@@ -5,7 +5,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var esc = S.esc, SITE = S.CONFIG.site, out = {};
   var LOGO = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="7" fill="#a21d54"/><path d="M15 12v40M16.5 32L40 13M16.5 32L40 52" stroke="#fff" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M52 13L44.5 51" stroke="#fff" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/></svg>';
   var WORD = '<span class="lw"><b>KINES<i>FIT</i></b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".3";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".4";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -37,7 +37,8 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     "eliptico-polielliptical-4600":[["Dimensões","170 x 63 x 164 cm"],["Visor","LCD com luz de fundo"]],
     "eliptico-proteus-promaster-e12":[["Dimensões montado","185 x 78,5 x 161 cm"],["Peso máximo do usuário","180 kg"]],
     "eliptico-proteus-profissional-eec7097":[["Dimensões","165 x 74 x 161 cm"],["Peso máximo do usuário","150 kg"]],
-    "vatnage-r5":[["Dimensões","143 x 29 x 112 cm"],["Peso máximo do usuário","150 kg"]],
+    "fita-de-suspensao-jet-stream-ka17":[["Fixação","Suporte de porta e extensão para ponto mais alto"],["Construção","Fitas com costura dupla e fivelas anodizadas"]],
+    "vantage-r5":[["Dimensões","143 x 29 x 112 cm"],["Peso máximo do usuário","150 kg"]],
     "cross-over-profissional":[["Carga","150 kg (75 kg em cada torre)"],["Dimensões","2,34 m x 3,15 m x 77 cm"],["Acompanha","Par de puxador estribo"]],
     "estacao-mono-cross-over-profissional-75":[["Carga integrada","75 kg (15 placas)"],["Sistema","Polia alta e baixa"]],
     "estacao-de-musculacao-uma-coluna":[["Peso máximo do usuário","125 kg"],["Carga inclusa","Até 50 kg"],["Medidas","202 x 105 x 175 cm"]],
@@ -47,7 +48,57 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     "barra-regular-ez-curl-voeil-br-1001":[["Diâmetro","30 mm"],["Formato","Ondulado (barra EZ)"]],
     "vbs-3500":[["Carga máxima","250 kg"],["Peso máximo do usuário","110 kg"],["Medidas montado","170 x 80 x 162 cm"]],
     "vbs-4580":[["Carga máxima","250 kg"],["Peso máximo do usuário","120 kg"],["Medidas montado","240 x 122 x 155 cm"]],
-    "vbr-3500":[["Carga máxima","250 kg"],["Peso máximo do usuário","130 kg"]]
+    "vbr-3500":[["Carga máxima","250 kg"],["Peso máximo do usuário","130 kg"]],
+    "par-de-halteres-vinil-3-kg":[["Peso","3 kg cada (par)"],["Revestimento","PVC"],["Formato","Sextavado"]],
+    "7-series-peso-livre-profissional":[["Tubos e quadros","Aço com 6 mm de espessura"],["Espuma","Alta densidade"],["Revestimento","Couro PU 1,5 mm"],["Parafusos","Aço inoxidável"],["Pintura","Teste de névoa salina acima de 500 horas"]],
+    "adutor-abdutor-combo-voeil-vc-2000":[["Peso máximo do usuário","150 kg"],["Carga de peso","80 kg"],["Dimensões (C x L x A)","173 x 170 x 135 cm"],["Função","Adutor e abdutor (dupla função)"],["Estrutura","Metalon de 2,00 a 4,25 mm de parede"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Glúteos, adutores, abdutores, quadríceps"]],
+    "banco-lombar-45":[["Dimensões (C x L x A)","1,20 x 1,00 x 0,70 m"],["Peso","25 kg"],["Tubulação","Aço carbono 3\", parede de 2,65 a 3 mm"],["Solda","MIG"],["Pintura","Eletrostática (prata, chumbo, preto fosco ou branco)"],["Estofado","Courvin náutico antimofo, espuma AG 140"]],
+    "banco-scott":[["Dimensões (C x L x A)","1,00 x 1,00 x 1,00 m"],["Peso","25 kg"],["Tubulação","Aço carbono 3\", parede de 2,65 a 3 mm"],["Solda","MIG"],["Pintura","Eletrostática (prata, chumbo, preto fosco ou branco)"],["Estofado","Courvin náutico antimofo, espuma AG 140"]],
+    "banco-supino-reto":[["Dimensões (C x L x A)","1,20 x 1,00 x 1,40 m"],["Peso","35 kg"],["Tubulação","Aço carbono 3\", parede de 2,65 a 3 mm"],["Solda","MIG"],["Pintura","Eletrostática (prata, chumbo, preto fosco ou branco)"],["Estofado","Courvin náutico antimofo, espuma AG 140"]],
+    "flexora-extensora-voeil-vc2010":[["Peso máximo do usuário","150 kg"],["Carga de peso","70 kg (pilha seletora por pino)"],["Dimensões (C x L x A)","1210 x 905 x 1565 mm"],["Referência","Voeil VC-2010"],["Função","Extensora e flexora de pernas (dupla função)"],["Estrutura","Metalon de 2,00 a 4,25 mm de parede"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Quadríceps e posteriores de coxa"]],
+    "chin-dip-assist-graviton-voeil-vc-3070":[["Peso máximo do usuário","150 kg"],["Carga de peso","70 kg (pilha seletora por pino, como assistência)"],["Dimensões (C x L x A)","1000 x 1100 x 2200 mm"],["Referência","Voeil VC-3070"],["Função","Barra fixa e mergulho assistidos, com contrapeso"],["Estrutura","Metalon reforçado, tubo de 3\" com parede de 2,65 a 3 mm"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Dorsais e bíceps (barra); peitoral e tríceps (mergulho)"]],
+    "cross-over":[["Peso máximo do usuário","150 kg"],["Carga de peso","90 kg por torre (pilha seletora por pino)"],["Dimensões (C x L x A)","2480 x 1200 x 2300 mm"],["Referência","Voeil VC-2050"],["Função","Cross over angular com duas torres de polia regulável e barra fixa"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Peitoral, ombros, costas e core"]],
+    "crossover-e-smith-machine-voeil-vcs-3000":[["Peso máximo do usuário","150 kg"],["Carga de peso","90 kg de cada lado"],["Dimensões (C x L x A)","180 x 100 x 150 cm"],["Função","Crossover e Smith Machine (dupla função)"],["Estrutura","Metalon de 2,00 a 4,25 mm de parede"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Peitoral, deltoides, dorsal, bíceps, tríceps, abdômen, quadríceps, glúteos, lombar"]],
+    "elevacao-pelvica-voeil-vc-3050":[["Peso máximo do usuário","150 kg"],["Carga de peso","Anilhas olímpicas na barra (não inclusas)"],["Dimensões (C x L x A)","1560 x 1310 x 860 mm"],["Referência","Voeil VC-3050"],["Função","Elevação pélvica (hip thrust) guiada, com cinto de quadril acolchoado"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Glúteos, posteriores de coxa e core"]],
+    "espaldar-aco":[["Dimensões (C x L x A)","0,50 x 1,00 x 2,20 m"],["Peso","25 kg"],["Tubulação","Aço carbono 3\", parede de 2,65 a 3 mm"],["Solda","MIG"],["Instalação","4 pontos de fixação, 2 parafusos em cada"],["Pintura","Eletrostática (prata, chumbo, preto fosco ou branco)"]],
+    "estacao-cross-smith-multipower-v-8800":[["Configuração","Duas colunas de peso integradas + smith machine"],["Indicação","Academias, condomínios e estúdios"]],
+    "estacao-profissional-voeil-ve-3500-com-leg-press":[["Carga","90 kg por torre"],["Bateria de peso","Aço fundido"],["Cabo de aço","Revestido em nylon de alta resistência"],["Tubulação","2 a 3\", parede de 2,25 a 3 mm"],["Estofado","Courvin náutico antimofo, espuma AG 120"],["Pintura","Eletrostática"],["Dimensões montado (C x L x A)","1,85 x 1,95 x 2,10 m"]],
+    "kit-de-gaiola-mc-300":[["Dimensões","218,43 x 41 x 86 cm"],["Peso","139,5 kg"],["Composição","2 gaiolas MC 300 + 3 Monkey RR 100 + 1 DP 100 (dip/chin)"],["Pintura","Eletrostática a pó"],["Solda","Robotizada"]],
+    "leg-press-sentado-voeil-vc2070":[["Peso máximo do usuário","150 kg"],["Carga de peso","70 kg (pilha seletora por pino)"],["Dimensões (C x L x A)","1800 x 1000 x 1500 mm"],["Referência","Voeil VC-2070"],["Função","Leg press e hack squat (2 em 1)"],["Estrutura","Metalon oblongo 98 x 50 mm, parede de 2,65 a 3 mm"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Quadríceps, glúteos e panturrilhas"]],
+    "leg-press-45-voeil-vc2060":[["Peso máximo do usuário","150 kg"],["Carga de peso","Anilhas olímpicas (não inclusas)"],["Dimensões (C x L x A)","1800 x 1000 x 1500 mm"],["Referência","Voeil VC-2060"],["Função","Leg press 45° com carro sobre trilhos e trava de segurança"],["Estrutura","Metalon oblongo 98 x 50 mm, parede de 2,65 a 3 mm"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Quadríceps, glúteos e posteriores de coxa"]],
+    "maquina-de-biceps-voeil-vc2080":[["Peso máximo do usuário","150 kg"],["Carga de peso","70 kg (pilha seletora por pino)"],["Dimensões (C x L x A)","1500 x 1100 x 1500 mm"],["Referência","Voeil VC-2080"],["Função","Rosca scott guiada, com apoio articulado"],["Estrutura","Metalon oblongo 98 x 50 mm, parede de 2,65 a 3 mm"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Bíceps"]],
+    "multi-gym-com-leg-press":[["Configuração","Estação multifuncional com leg press integrado"],["Linha","Semi profissional (condomínios e uso residencial)"]],
+    "panturrilha-sentada":[["Dimensões (C x L x A)","1,00 x 0,60 x 0,80 m"],["Peso","30 kg"],["Tubulação","Aço carbono 3\", parede de 2,65 a 3 mm"],["Solda","MIG"],["Pintura","Eletrostática (prata, chumbo, preto fosco ou branco)"],["Estofado","Courvin náutico antimofo, espuma AG 140"]],
+    "remada-articulada":[["Dimensões (C x L x A)","1,40 x 1,20 x 1,30 m"],["Peso","40 kg"],["Tubulação","Aço carbono 3\", parede de 2,65 a 3 mm"],["Solda","MIG"],["Pintura","Eletrostática (prata, chumbo, preto fosco ou branco)"],["Estofado","Courvin náutico antimofo, espuma AG 140"]],
+    "supino-vertical-voeil-vc-3090":[["Peso máximo do usuário","150 kg"],["Carga de peso","70 kg (pilha seletora por pino)"],["Dimensões (C x L x A)","2000 x 1100 x 1500 mm"],["Referência","Voeil VC-3090"],["Função","Supino vertical sentado, trajetória guiada"],["Estrutura","Metalon oblongo 98 x 50 mm, parede de 2,65 a 3 mm"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Peitoral, tríceps e deltoide anterior"]],
+    "vbr-3000":[["Peso máximo do usuário","110 kg"],["Peso","11,5 kg"],["Revestimento","Couro náutico ecológico em duas cores"],["Pintura","Reforçada, resistente à ferrugem"],["Solda","Robotizada"]],
+    "vbr-3580":[["Regulagem","Múltiplas posições"]],
+    "peck-deck-dorsal-voeil-vc2030":[["Peso máximo do usuário","150 kg"],["Carga de peso","70 kg (pilha seletora por pino)"],["Referência","Voeil VC-2030"],["Função","Voador (peck deck) e dorsal na mesma estação"],["Estrutura","Metalon oblongo 98 x 50 mm, parede de 2,65 a 3 mm"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Peitoral, deltoide posterior e dorsais"],["Dimensões (C x L x A)","1200 x 1000 x 1700 mm"]],
+    "peck-deck-voeil-vc2045":[["Peso máximo do usuário","150 kg"],["Carga de peso","70 kg (pilha seletora por pino)"],["Referência","Voeil VC-2045"],["Função","Peck deck (voador), adução horizontal de peitoral"],["Estrutura","Metalon oblongo 98 x 50 mm, parede de 2,65 a 3 mm"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Peitoral"],["Dimensões (C x L x A)","1200 x 1000 x 1700 mm"]],
+    "puxador-com-remada-voeil-vc2040":[["Peso máximo do usuário","150 kg"],["Carga de peso","70 kg (pilha seletora por pino)"],["Referência","Voeil VC-2040"],["Função","Puxador alto e remada baixa sentada, polias conjugadas"],["Acabamento","Pintura eletrostática a pó"],["Grupos musculares","Dorsais, trapézio, romboides e bíceps"],["Dimensões (C x L x A)","1700 x 1100 x 2200 mm"]],
+    "plataforma-vibracao-profissional-proteus":[["Peso máximo do usuário","180 kg"],["Modelo","I-VIB 5020"],["Frequência","3 a 10 Hz"],["Amplitude","4 mm"],["Programas","7 faixas de frequência e 3 programas"],["Controle","Remoto sem fio"],["Motor","DC, até 375 W"],["Dimensões","690 x 590 x 250 mm"],["Peso","46 kg"],["Certificações","CE e TÜV/GS"]],
+    "esteira-profissional-alfa-a-6-000i":[["Motor","3,0 HP AC"],["Velocidade","Até 18 km/h"],["Inclinação","Elétrica, 0 a 15%"],["Área de corrida","1,60 x 0,60 m"],["Peso máximo do usuário","180 kg"],["Painel","LCD touch 10,1\" com 3 janelas de LED"],["Amortecimento","Deck flutuante, com botão de emergência"],["Dimensões (C x L x A)","2,15 x 0,95 x 1,60 m"],["Peso","170 kg"]],
+    "jbm-5255":[["Motor","DC 3,0 HP real (4,0 HP de pico)"],["Velocidade","1 a 18 km/h"],["Manta","52 x 155 cm"],["Peso máximo do usuário","150 kg"],["Programas","25"],["Visor","130 x 60 mm"],["Dimensões","208 x 84 x 149 cm"],["Peso","110 kg"]],
+    "jdm-5200":[["Linha","Profissional"],["Dimensões (C x L x A)","186 x 88 x 139 cm"],["Peso","126 kg"]],
+    "pec-7097":[["Dimensões","139 x 45 x 117 cm"],["Peso","55 kg"]],
+    "pec-7597":[["Dimensões em uso","70 x 147 x 133 cm"],["Peso","59 kg"]],
+    "magnetic-bike-bf-5150":[["Resistência","Magnética"],["Linha","Semi profissional"]],
+    "esteira-profissional-vsi-300":[["Linha","Profissional"]],
+    "bola-queens":[["Peso","1,8 kg"]],
+    "caneleira-voeil-cn-1000":[["Material","Couro natural, interior almofadado em algodão"],["Fecho","Fivela"],["Uso","Máquinas com sistema de polias"]],
+    "cinto-voeil-para-halterofilismo-ct-1000":[["Material","Couro"],["Fecho","Fivela"],["Comprimento","120 cm"],["Largura","11 cm"],["Espessura","2,5 cm"]],
+    "clubbell-voeil-preto-revestido":[["Peso","8 kg"],["Material","Aço, ponta pesada com PVC vulcanizado"],["Espessura do punho","2,3 cm"]],
+    "clubbell-voeil-preto-revestido-pvc-4-kg":[["Peso","4 kg"],["Material","Aço, ponta pesada com PVC vulcanizado"],["Espessura do punho","2,3 cm"]],
+    "clubbell-voeil-preto-revestido-em-pvc-de-6-kg":[["Peso","6 kg"],["Material","Aço, ponta pesada com PVC vulcanizado"],["Espessura do punho","2,3 cm"]],
+    "colchonete-profissional-voeil":[["Dimensões","90 x 45 x 4 cm"],["Espuma","Alta densidade (80G)"],["Revestimento","Couro sintético 2 mm"],["Capacidade","150 kg"],["Peso","2 kg"]],
+    "mx-400":[["Uso","Suporte de parede para saco de pancada"],["Capacidade","Sacos de até 70 kg"],["Dimensões","61,5 x 16 x 6,5 cm"],["Peso","3,5 kg"]],
+    "2-halteres-voeil-de-10kg-cada-sextavado-emborrachado-em-pvc":[["Peso","10 kg cada (par)"],["Revestimento","PVC"],["Formato","Sextavado"]],
+    "2-halteres-de-5kg-cada-sextavado-voeil":[["Peso","5 kg cada (par)"],["Revestimento","PVC"],["Formato","Sextavado"]],
+    "2-halteres-voeil-de-7kg-cada-sextavado-emborrachado-em-pvc":[["Peso","7 kg cada (par)"],["Revestimento","PVC"],["Formato","Sextavado"]],
+    "tornozeleira-profissional-voeil-4kg":[["Peso","4 kg cada (par)"],["Material","Couro sintético, velcro e nylon"]],
+    "prancha-de-equilibrio":[["Material","PP (polipropileno)"],["Peso máximo do usuário","120 kg"]],
+    "puxadores-voeil":[["Modelos","17 opções (barra reta, dorsal, V, cordas, pegadores simples e rotativos)"],["Material","Aço e corda"],["Uso","Máquinas com sistema de polias"]],
+    "suportes-voeil-para-academia-anilhas-colchonetes-dumbbell-hasteres-tornozeleiras-e-puxadores":[["Material","Aço carbono"],["Acabamento","Pintura eletrostática"]]
   };
   function specs(p){
     var r = [["Categoria", S.CAT_LABEL[p.categoria]], ["Linha", p.sub]];
@@ -113,9 +164,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.3">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.4">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header() + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.3"></script>\n<script src="/assets/app.js?v=' + HOJE + '.3"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.4"></script>\n<script src="/assets/app.js?v=' + HOJE + '.4"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -250,6 +301,11 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   out["assets/favicon.svg"] = '<svg xmlns="http://www.w3.org/2000/svg" ' + LOGO.slice(5).replace(' aria-hidden="true"','') + "\n";
   out["assets/catalogo.js"] = "const equipamentos = " + JSON.stringify(DATA) + ";\n" + SH;
   out["enviar.php"] = PHP;
+  /* endereços antigos (vindos da Body Center) redirecionam para o novo */
+  DATA.filter(function(p){ return p.idAntigo; }).forEach(function(p){
+    var u = SITE + S.pUrl(p);
+    out["equipamentos/" + p.idAntigo + ".html"] = '<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<title>' + S.esc(p.nome) + ' | Kinesfit</title>\n<meta name="robots" content="noindex, follow">\n<link rel="canonical" href="' + u + '">\n<meta http-equiv="refresh" content="0; url=' + u + '">\n<script>location.replace("' + u + '");</script>\n</head>\n<body><p>Esta página mudou de endereço: <a href="' + u + '">' + S.esc(p.nome) + '</a>.</p></body>\n</html>\n';
+  });
   return out;
 }
 if(typeof module !== "undefined" && module.exports) module.exports = kfBuild; else root.kfBuild = kfBuild;
