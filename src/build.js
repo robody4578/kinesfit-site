@@ -3,12 +3,13 @@
 function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var S = new Function("equipamentos", SH + "\n;return {CONFIG:CONFIG,CATS:CATS,SUBS:SUBS,CAT_LABEL:CAT_LABEL,CAT_SLUG:CAT_SLUG,esc:esc,slug:slug,waLink:waLink,tipo:tipo,localImg:localImg,altText:altText,imgTag:imgTag,pUrl:pUrl,cardHTML:cardHTML};")(DATA);
   var esc = S.esc, SITE = S.CONFIG.site, out = {};
-  var LOGO = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#fff"/><path d="M20 14v36M20 33l22-19M26 31l18 19" stroke="#2e3f4f" stroke-width="7" stroke-linecap="round" fill="none"/><path d="M12 52L52 12" stroke="#a21d54" stroke-width="5" stroke-linecap="round"/></svg>';
-  var FAV = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232e3f4f'/%3E%3Cpath d='M20 14v36M20 33l22-19M26 31l18 19' stroke='%23fff' stroke-width='7' stroke-linecap='round' fill='none'/%3E%3Cpath d='M12 52L52 12' stroke='%23a21d54' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E";
+  var LOGO = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="7" fill="#a21d54"/><path d="M15 12v40M16.5 32L40 13M16.5 32L40 52" stroke="#fff" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M52 13L44.5 51" stroke="#fff" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/></svg>';
+  var WORD = '<span class="lw"><b>KINES<i>FIT</i></b><small>Equipamentos fitness</small></span>';
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".4";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
-  var OGIMG = SITE + S.localImg(DATA.filter(function(p){return p.id==="esteira-profissional-alfa-a-6-000i";})[0] || DATA[0]);
+  var OGIMG = SITE + "/assets/og-kinesfit.png";
 
   var PHURI = "data:image/svg+xml;utf8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#e9eef1"/><path d="M70 60v80M70 102l50-42M84 98l40 42" stroke="#b8c6ce" stroke-width="14" stroke-linecap="round" fill="none"/></svg>');
   var IMGFAIL = '<script>function imgFail(el){try{if(typeof equipamentos==="undefined"){el.dataset.r=(+el.dataset.r||0)+1;if(el.dataset.r<20){setTimeout(function(){imgFail(el)},250);return}}else if(el.dataset.step==="0"){var p=equipamentos.find(function(x){return x.id===el.dataset.pid});if(p){el.dataset.step="1";el.src=p.img;return}}}catch(e){}el.onerror=null;el.src="' + PHURI + '"}</script>';
@@ -141,13 +142,13 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     return h + '<li><a class="top" href="/#como-funciona">Como funciona</a></li><li><a class="top" href="/#publico">Para quem</a></li><li><a class="top" href="/#sobre">Sobre</a></li><li><a class="top" href="/#contato">Contato</a></li></ul>';
   }
   function header(){
-    return '<header><div class="wrap hbar"><a href="/" class="logo" aria-label="Kinesfit - início">' + LOGO + '<b>KINES<i>FIT</i></b></a>' +
+    return '<header><div class="wrap hbar"><a href="/" class="logo" aria-label="Kinesfit - início">' + LOGO + WORD + '</a>' +
       '<nav id="nav" aria-label="Menu principal">' + navHTML() + '</nav>' +
       '<div class="hact"><button type="button" class="orc-btn" data-open aria-label="Abrir meu orçamento"><span class="lb">Meu orçamento</span><b data-count>0</b></button>' +
       '<button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span></button></div></div></header>';
   }
   function footer(){
-    return '<footer><div class="wrap"><div class="top"><a href="/" class="logo" aria-label="Kinesfit">' + LOGO.replace('<svg ','<svg style="width:36px;height:36px" ') + '<b style="font-size:24px">KINES<i>FIT</i></b></a>' +
+    return '<footer><div class="wrap"><div class="top"><a href="/" class="logo" aria-label="Kinesfit">' + LOGO + WORD + '</a>' +
       '<ul><li><a href="/musculacao.html">Musculação</a></li><li><a href="/cardio.html">Cardio Máquinas</a></li><li><a href="/acessorios.html">Acessórios</a></li><li><a href="/#publico">Para quem</a></li><li><a href="/#sobre">Sobre</a></li><li><a href="/#contato">Contato</a></li></ul></div>' +
       '<div class="bot"><span>© <span id="ano"></span> Kinesfit. Todos os direitos reservados. · <a href="mailto:' + S.CONFIG.email + '">' + S.CONFIG.email + '</a> · WhatsApp ' + S.CONFIG.whatsappExibido + '</span><span>Todo fornecimento é feito sob orçamento.</span></div></div></footer>' +
       '<a class="wa" data-wa href="' + WAURL + '" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg></a>';
@@ -161,11 +162,11 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:type" content="' + (o.ogType||"website") + '">\n<meta property="og:locale" content="pt_BR">\n<meta property="og:site_name" content="Kinesfit">\n' +
       '<meta property="og:title" content="' + esc(o.title) + '">\n<meta property="og:description" content="' + esc(o.desc) + '">\n<meta property="og:url" content="' + url + '">\n' +
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
-      '<link rel="icon" href="' + FAV + '">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
-      '<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.3">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
+      '<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.4">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header() + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.3"></script>\n<script src="/assets/app.js?v=' + HOJE + '.3"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.4"></script>\n<script src="/assets/app.js?v=' + HOJE + '.4"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -177,7 +178,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   function itemList(list){
     return {"@context":"https://schema.org","@type":"ItemList","itemListElement":list.map(function(p,i){ return {"@type":"ListItem","position":i+1,"url":SITE+S.pUrl(p),"name":p.nome}; })};
   }
-  var ORG = {"@context":"https://schema.org","@type":"Organization","name":"Kinesfit","url":SITE+"/","description":"Equipamentos de musculação, cardio e acessórios para condomínios, espaços corporativos e construtoras.","areaServed":"BR","email":S.CONFIG.email,"telephone":"+"+S.CONFIG.whatsapp.replace(/^(\d\d)(\d\d)(\d{5})(\d{4})$/,"$1 $2 $3-$4"),"contactPoint":{"@type":"ContactPoint","contactType":"sales","telephone":"+"+S.CONFIG.whatsapp.replace(/^(\d\d)(\d\d)(\d{5})(\d{4})$/,"$1 $2 $3-$4"),"email":S.CONFIG.email,"availableLanguage":"Portuguese"}};
+  var ORG = {"@context":"https://schema.org","@type":"Organization","name":"Kinesfit","url":SITE+"/","logo":SITE+"/assets/logo-kinesfit.png","description":"Equipamentos de musculação, cardio e acessórios para condomínios, espaços corporativos e construtoras.","areaServed":"BR","email":S.CONFIG.email,"telephone":"+"+S.CONFIG.whatsapp.replace(/^(\d\d)(\d\d)(\d{5})(\d{4})$/,"$1 $2 $3-$4"),"contactPoint":{"@type":"ContactPoint","contactType":"sales","telephone":"+"+S.CONFIG.whatsapp.replace(/^(\d\d)(\d\d)(\d{5})(\d{4})$/,"$1 $2 $3-$4"),"email":S.CONFIG.email,"availableLanguage":"Portuguese"}};
   var SITELD = {"@context":"https://schema.org","@type":"WebSite","name":"Kinesfit","url":SITE+"/","inLanguage":"pt-BR"};
 
   /* ---------- home ---------- */
@@ -297,6 +298,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   out["robots.txt"] = "User-agent: *\nAllow: /\nDisallow: /orcamento.html\nDisallow: /enviar.php\n\nSitemap: " + SITE + "/sitemap.xml\n";
   out["assets/site.css"] = CSS;
   out["assets/app.js"] = APP;
+  out["assets/favicon.svg"] = '<svg xmlns="http://www.w3.org/2000/svg" ' + LOGO.slice(5).replace(' aria-hidden="true"','') + "\n";
   out["assets/catalogo.js"] = "const equipamentos = " + JSON.stringify(DATA) + ";\n" + SH;
   out["enviar.php"] = PHP;
   /* endereços antigos (vindos da Body Center) redirecionam para o novo */
