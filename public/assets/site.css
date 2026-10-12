@@ -76,6 +76,13 @@ nav .sub a:hover{background:var(--azul-l);color:var(--vinho)}
 .tag{font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--vinho)}
 .card h3{font-size:21px;color:var(--petroleo);text-transform:none;letter-spacing:0;font-weight:700;line-height:1.15}
 .card .brand{font-size:13.5px;color:var(--muted)}
+.preco{font-size:19px;font-weight:800;color:var(--vinho);line-height:1.2}
+.preco small{display:block;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.preco.sob{font-size:14px;font-weight:600;color:var(--petroleo)}
+.pg-preco{margin:12px 0 4px}
+.pg-preco .preco{font-size:30px}
+.pg-preco .preco small{font-size:13px}
+.pg-preco .preco.sob{font-size:17px}
 .card .row{margin-top:auto;padding-top:12px;display:flex;gap:8px}
 .card .row button,.card .row a{flex:1;padding:10px 8px;border-radius:999px;font-size:14px;font-weight:600;text-align:center;display:block}
 .b-det{border:1.5px solid var(--petroleo);color:var(--petroleo)}.b-det:hover{background:var(--petroleo);color:#fff}

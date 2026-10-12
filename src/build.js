@@ -1,7 +1,7 @@
 /* Gerador do site Kinesfit: recebe os dados e os textos-base e devolve {caminho: conteúdo}. Roda no Node e no navegador. */
 (function(root){
 function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
-  var S = new Function("equipamentos", SH + "\n;return {CONFIG:CONFIG,CATS:CATS,SUBS:SUBS,CAT_LABEL:CAT_LABEL,CAT_SLUG:CAT_SLUG,esc:esc,slug:slug,waLink:waLink,tipo:tipo,localImg:localImg,altText:altText,imgTag:imgTag,pUrl:pUrl,cardHTML:cardHTML};")(DATA);
+  var S = new Function("equipamentos", SH + "\n;return {CONFIG:CONFIG,CATS:CATS,SUBS:SUBS,CAT_LABEL:CAT_LABEL,CAT_SLUG:CAT_SLUG,esc:esc,slug:slug,waLink:waLink,tipo:tipo,localImg:localImg,altText:altText,imgTag:imgTag,pUrl:pUrl,cardHTML:cardHTML,brl:brl,precoHTML:precoHTML};")(DATA);
   var esc = S.esc, SITE = S.CONFIG.site, out = {};
   var LOGO = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="7" fill="#a21d54"/><path d="M15 12v40M16.5 32L40 13M16.5 32L40 52" stroke="#fff" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M52 13L44.5 51" stroke="#fff" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/></svg>';
   var WORD = '<span class="lw"><b>KINES<i>FIT</i></b><small>Equipamentos fitness</small></span>';
@@ -186,7 +186,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     ["Como funciona o orçamento?","Todo fornecimento é feito sob orçamento. Você monta a lista com os equipamentos, as quantidades e os modelos, envia por e-mail ou WhatsApp e a Kinesfit responde com uma proposta personalizada."],
     ["Para quais espaços a Kinesfit fornece equipamentos?","Atendemos academias de condomínios residenciais e comerciais, espaços corporativos, construtoras e empreendimentos, além de academias e estúdios."],
     ["Posso pedir vários equipamentos no mesmo orçamento?","Sim. Use o botão + Orçamento em cada equipamento, ajuste as quantidades e informe o modelo desejado. Tudo vai junto em um único pedido."],
-    ["Quais marcas vocês trabalham?","O catálogo reúne equipamentos de marcas como Voeil, Proteus, Alfa, Jet Stream, Polibike e Queens, entre outras. Se não encontrar o que procura, fale com a gente."]
+    ["Quais marcas vocês trabalham?","O catálogo reúne equipamentos de marcas como Voeil, Proteus, Alfa, Jet Stream e Queens, entre outras. Se não encontrar o que procura, fale com a gente."]
   ];
   function faqHTML(list){ return '<div class="faq">' + list.map(function(f){ return '<details><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>'; }).join("") + '</div>'; }
   function faqLD(list){ return {"@context":"https://schema.org","@type":"FAQPage","mainEntity":list.map(function(f){ return {"@type":"Question","name":f[0],"acceptedAnswer":{"@type":"Answer","text":f[1]}}; })}; }
@@ -212,7 +212,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     '<div class="actions-row"><a class="btn btn-vinho" href="#catalogo">Escolher equipamentos</a><a class="btn btn-dark" data-wa href="' + WAURL + '" target="_blank" rel="noopener">Prefiro falar no WhatsApp</a></div></div></section>\n' +
     '<section id="categorias"><div class="wrap"><div class="sec-head"><div class="eyebrow">Categorias</div><h2>O que você precisa para sua área de treino</h2></div><div class="tiles">' + tiles + '</div></div></section>\n' +
     '<section id="destaques" style="padding-top:0"><div class="wrap"><div class="sec-head"><div class="eyebrow">Em destaque</div><h2>Equipamentos em destaque</h2><p>Consulte-nos para conhecer configurações, condições e disponibilidade de cada item.</p></div><div class="grid" id="gridDest">' + destaque.map(S.cardHTML).join("") + '</div></div></section>\n' +
-    '<section class="catalogo" id="catalogo"><div class="wrap"><div class="sec-head"><div class="eyebrow">Catálogo</div><h2>Todos os equipamentos</h2><p>Os valores são definidos por orçamento. Toque em <b>+ Orçamento</b> nos itens de interesse, ajuste quantidades e modelos e envie o pedido.</p></div>' +
+    '<section class="catalogo" id="catalogo"><div class="wrap"><div class="sec-head"><div class="eyebrow">Catálogo</div><h2>Todos os equipamentos</h2><p>Os preços mostrados são valores de referência (a partir de); o valor final é confirmado no orçamento. Toque em <b>+ Orçamento</b> nos itens de interesse, ajuste quantidades e modelos e envie o pedido.</p></div>' +
     '<div class="filters"><div class="chips" id="chipsCat"></div><div class="chips sm" id="chipsSub"></div><div class="search"><input type="search" id="busca" placeholder="Buscar por nome, marca ou modelo…" aria-label="Buscar equipamentos"><span class="count" id="contagem">' + DATA.length + ' equipamentos</span></div></div>' +
     '<div class="grid" id="grid">' + DATA.map(S.cardHTML).join("") + '</div></div></section>\n' +
     '<section id="publico"><div class="wrap"><div class="sec-head"><div class="eyebrow">Para quem</div><h2>Soluções para o seu espaço</h2></div><div class="pub">' +
@@ -269,21 +269,22 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     var lead = p.nome + " é " + t[0] + " " + t[1] + (p.marca ? " da marca " + p.marca : "") + ", indicad" + (t[0]==="uma" ? "a" : "o") + " para " + USO[p.sub || "Acessórios"] + ".";
     var faq = [
       ["Como pedir orçamento de " + p.nome + "?","Toque em + Adicionar à lista de orçamento, informe a quantidade e o modelo desejado e envie o pedido por e-mail ou WhatsApp. A Kinesfit responde com uma proposta personalizada."],
-      ["Qual o preço de " + p.nome + "?","Todo fornecimento da Kinesfit é feito sob orçamento, pois o valor depende da quantidade, da configuração e das condições do projeto. Solicite a sua proposta pela lista de orçamento."],
+      ["Qual o preço de " + p.nome + "?",(p.preco ? p.nome + " sai a partir de " + S.brl(p.preco) + " por unidade. " : "") + "Todo fornecimento da Kinesfit é feito sob orçamento, pois o valor depende da quantidade, da configuração e das condições do projeto. Solicite a sua proposta pela lista de orçamento."],
       ["Posso pedir " + p.nome + " junto com outros equipamentos?","Sim. Adicione quantos itens quiser à lista e envie tudo em um único pedido de orçamento."]
     ];
     var rel = relacionados(p);
     var body = '<main><div class="wrap">' + crumb(cr) + '</div><div class="pg"><div class="wrap"><div class="cols">' +
       '<div class="pic">' + S.imgTag(p, S.altText(p), 'width="430" height="430"') + '</div>' +
-      '<div><span class="tag">' + esc(p.sub) + '</span><h1>' + esc(p.nome) + '</h1>' + brand +
+      '<div><span class="tag">' + esc(p.sub) + '</span><h1>' + esc(p.nome) + '</h1>' + brand + '<div class="pg-preco">' + S.precoHTML(p) + '</div>' +
       '<p class="lead">' + esc(lead) + '</p><p>' + esc(para2) + '</p>' +
       '<div class="cta"><button type="button" class="b-orc" data-add="' + esc(p.id) + '" data-lbl="+ Adicionar à lista de orçamento">+ Adicionar à lista de orçamento</button><a class="btn btn-line" style="border-color:var(--petroleo);color:var(--petroleo)" href="' + WAURL + '" data-wa target="_blank" rel="noopener">Falar no WhatsApp</a></div>' +
-      '<div class="note">Valores sob orçamento. Informe quantidade e modelo na lista e enviamos a proposta.</div></div></div></div></div>' +
+      '<div class="note">' + (p.preco ? 'Preço de referência por unidade. O valor final é confirmado no orçamento, conforme quantidade e condições do projeto.' : 'Valor sob orçamento. Informe quantidade e modelo na lista e enviamos a proposta.') + '</div></div></div></div></div>' +
       '<div class="pgx"><div class="wrap"><div class="prose"><h2>Ficha do equipamento</h2><table class="spec"><tbody>' + rows + '</tbody></table>' +
       '<h2>Dúvidas sobre ' + esc(p.nome) + '</h2>' + faqHTML(faq) + '</div></div></div>' +
       '<section class="rel"><div class="wrap"><h2>Outros equipamentos que podem interessar</h2><div class="grid">' + rel.map(S.cardHTML).join("") + '</div></div></section></main>';
     var ld = [crumbLD(cr), {"@context":"https://schema.org","@type":"Product","name":p.nome,"description":descProd(p),"image":[absImg(p)],"sku":p.id,"category":S.CAT_LABEL[cat] + " > " + p.sub,"url":SITE+path}];
     if(p.marca) ld[1].brand = {"@type":"Brand","name":p.marca};
+    if(p.preco) ld[1].offers = {"@type":"AggregateOffer","lowPrice":p.preco,"priceCurrency":"BRL","offerCount":1,"url":SITE+path};
     page({path:path, title:tituloProd(p), desc:descProd(p), body:body, ld:ld, image:absImg(p), ogType:"product"});
   });
 

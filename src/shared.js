@@ -15,10 +15,12 @@ function altText(p){ return p.nome + " – " + tipo(p)[1] + " | Kinesfit"; }
 function imgTag(p, alt, extra){
   return '<img ' + (extra||"") + ' referrerpolicy="no-referrer" data-pid="' + esc(p.id) + '" data-step="0" src="' + esc(localImg(p)) + '" alt="' + esc(alt) + '" onerror="imgFail(this)">';
 }
+const brl = v => "R$ " + Number(v).toLocaleString("pt-BR",{minimumFractionDigits:0,maximumFractionDigits:2});
+function precoHTML(p){ return p.preco ? '<span class="preco"><small>a partir de</small> ' + brl(p.preco) + '</span>' : '<span class="preco sob">Sob orçamento</span>'; }
 function pUrl(p){ return "/equipamentos/" + p.id + ".html"; }
 function cardHTML(p){
   const br = p.marca ? '<span class="brand">' + esc(p.marca) + (p.modelo ? " · " + esc(p.modelo) : "") + '</span>' : (p.modelo ? '<span class="brand">' + esc(p.modelo) + '</span>' : "");
   return '<article class="card"><a class="ph" href="' + pUrl(p) + '" tabindex="-1" aria-hidden="true">' + imgTag(p, altText(p), 'loading="lazy" width="430" height="430"') + '</a>' +
-    '<div class="body"><span class="tag">' + esc(p.sub) + '</span><h3><a href="' + pUrl(p) + '">' + esc(p.nome) + '</a></h3>' + br +
+    '<div class="body"><span class="tag">' + esc(p.sub) + '</span><h3><a href="' + pUrl(p) + '">' + esc(p.nome) + '</a></h3>' + br + precoHTML(p) +
     '<div class="row"><a class="b-det" href="' + pUrl(p) + '">Detalhes</a><button type="button" class="b-orc" data-add="' + esc(p.id) + '">+ Orçamento</button></div></div></article>';
 }
