@@ -39,6 +39,22 @@ nav .sub a{display:block;padding:9px 12px;border-radius:6px;font-size:14.5px}
 nav .sub a:hover{background:var(--azul-l);color:var(--vinho)}
 .cta-h{background:var(--vinho);padding:10px 20px!important;border-radius:999px!important;font-weight:600!important}
 .cta-h:hover{background:var(--vinho-d)!important}
+.hsearch{background:var(--petroleo-d);border-top:1px solid rgba(255,255,255,.08)}
+.hsearch .wrap{position:relative;padding-top:8px;padding-bottom:8px}
+.hsearch form:focus-within{box-shadow:0 0 0 2px var(--vinho)}
+.hsearch form{display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:4px 4px 4px 14px;max-width:720px;margin:0 auto}
+.hsearch form svg{width:18px;height:18px;color:var(--muted);flex:none}
+.hsearch input,.hsearch input:focus{flex:1;width:auto;min-width:0;border:0;outline:0;border-radius:0;font:inherit;font-size:15px;padding:7px 4px;background:transparent;color:var(--texto)}
+.hsearch form button{background:var(--vinho);color:#fff;border-radius:999px;padding:7px 18px;font-weight:600;font-size:14px}
+.hsearch form button:hover{background:var(--vinho-d)}
+.hres{position:absolute;left:50%;transform:translateX(-50%);top:100%;width:min(720px,calc(100% - 32px));background:#fff;color:var(--texto);border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,.22);padding:6px;max-height:70vh;overflow:auto}
+.hres a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px;border-radius:8px}
+.hres a:hover,.hres a:focus{background:var(--azul-l)}
+.hres span{font-weight:600;color:var(--petroleo)}
+.hres small{display:block;font-weight:500;font-size:12.5px;color:var(--muted)}
+.hres b{font-size:14px;color:var(--vinho);white-space:nowrap}
+.hres .todos{justify-content:center;font-weight:600;color:var(--vinho)}
+.hres p{padding:12px;font-size:14.5px}
 .burger{display:none;width:44px;height:44px;align-items:center;justify-content:center}
 .burger span,.burger span::before,.burger span::after{display:block;width:24px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.25s}
 .burger span::before,.burger span::after{content:'';position:absolute;left:0}
@@ -147,7 +163,7 @@ footer .bot{padding-top:20px;display:flex;justify-content:space-between;gap:10px
 @media(max-width:1040px){.grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:960px){
   .burger{display:flex}
-  nav{position:absolute;top:72px;left:0;right:0;background:var(--petroleo-d);max-height:0;overflow:hidden;transition:max-height .3s}
+  nav{position:absolute;top:72px;z-index:5;left:0;right:0;background:var(--petroleo-d);max-height:0;overflow:hidden;transition:max-height .3s}
   nav.open{max-height:80vh;overflow:auto}
   nav ul{flex-direction:column;align-items:stretch;padding:10px 20px 20px;gap:0}
   nav .sub{display:block;position:static;background:transparent;box-shadow:none;padding:0 0 6px 14px;min-width:0}
