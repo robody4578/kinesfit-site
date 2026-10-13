@@ -176,6 +176,27 @@ if(burger){
   nav.addEventListener("click", e=>{ if(e.target.closest("a")) closeNav(); });
 }
 
+/* ---------- busca do topo (todas as páginas) ---------- */
+const hq = $("#hq"), hres = $("#hres");
+const achar = q => { q = norm(q.trim()); return q ? equipamentos.filter(p => norm([p.nome,p.marca,p.modelo,p.sub,p.categoria].join(" ")).includes(q)) : []; };
+if(hq){
+  const fecha = ()=>{ hres.hidden = true; };
+  hq.addEventListener("input", ()=>{
+    const l = achar(hq.value);
+    if(!hq.value.trim()){ fecha(); return; }
+    hres.innerHTML = l.length ? l.slice(0,8).map(p=>'<a href="' + pUrl(p) + '"><span>' + esc(p.nome) + '<small>' + esc(p.sub) + '</small></span><b>' + (p.preco ? "a partir de R$ " + Number(p.preco).toLocaleString("pt-BR") : "Sob orçamento") + '</b></a>').join("") + (l.length>8 ? '<a class="todos" href="/?q=' + encodeURIComponent(hq.value.trim()) + '#catalogo">Ver todos os ' + l.length + ' resultados</a>' : "")
+      : '<p>Nenhum equipamento encontrado. Fale com a gente pelo WhatsApp.</p>';
+    hres.hidden = false;
+  });
+  $("#hsForm").addEventListener("submit", e=>{
+    const l = achar(hq.value);
+    if(l.length===1){ e.preventDefault(); location.href = pUrl(l[0]); }
+    else if($("#grid")){ e.preventDefault(); fecha(); $("#busca").value = hq.value; state.q = hq.value; renderGrid(); $("#catalogo").scrollIntoView({behavior:"smooth"}); }
+  });
+  document.addEventListener("click", e=>{ if(!e.target.closest(".hsearch")) fecha(); });
+  hq.addEventListener("keydown", e=>{ if(e.key==="Escape") fecha(); });
+}
+
 /* ---------- catálogo da página inicial (filtros e busca) ---------- */
 const state = {cat:"Todos", sub:"Todos", q:""};
 function renderChips(){
@@ -198,6 +219,8 @@ if($("#grid")){
   });
   $("#busca").addEventListener("input", e=>{ state.q=e.target.value; renderGrid(); });
   renderChips();
+  const q0 = new URLSearchParams(location.search).get("q");
+  if(q0){ $("#busca").value = q0; if(hq) hq.value = q0; state.q = q0; renderGrid(); }
 }
 
 /* ---------- início ---------- */
