@@ -337,3 +337,7 @@ nav a.top{white-space:nowrap}
 @media(max-width:960px){.lay-steps{grid-template-columns:1fr}}
 @media(min-width:961px) and (max-width:1240px){nav a.top{padding:10px 8px;font-size:14.5px}.orc-btn span.lb{display:none}}
 @media(min-width:961px) and (max-width:1060px){nav a.top{padding:10px 5px;font-size:14px}.hbar{gap:8px}}
+.lay-hero-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.lay-hero-acts .btn svg{width:18px;height:18px;flex:none}
+.phead p.lay-hero-mail{font-size:15px;margin-top:12px}
+.lay-hero-mail a{color:#fff;text-decoration:underline}

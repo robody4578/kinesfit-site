@@ -5,7 +5,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var esc = S.esc, SITE = S.CONFIG.site, out = {};
   var LOGO = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="7" fill="#a21d54"/><path d="M15 12v40M16.5 32L40 13M16.5 32L40 52" stroke="#fff" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M52 13L44.5 51" stroke="#fff" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/></svg>';
   var WORD = '<span class="lw"><b>KINES<i>FIT</i></b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".7";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".8";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -165,9 +165,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.7">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.8">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header() + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.7"></script>\n<script src="/assets/app.js?v=' + HOJE + '.7"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.8"></script>\n<script src="/assets/app.js?v=' + HOJE + '.8"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -312,7 +312,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
         '<p class="lay-zoom"><a class="lk" href="' + src + '" target="_blank" rel="noopener">Ampliar imagem</a></p></figure>';
     }).join("");
     var body = '<main><div class="phead"><div class="wrap">' + crumb(cr) + '<div class="eyebrow">Serviço</div><h1>Projeto de layout para a sua academia</h1>' +
-      '<p>Envie a planta ou as medidas da sala e a Kinesfit monta a distribuição dos equipamentos em escala, com áreas de circulação e a lista completa para o orçamento.</p></div></div>' +
+      '<p>Envie a planta ou as medidas da sala e a Kinesfit monta a distribuição dos equipamentos em escala, com áreas de circulação e a lista completa para o orçamento.</p>' +
+      '<div class="lay-hero-acts"><a class="btn btn-vinho" href="' + esc(LAYMAIL) + '">' + MAILI + 'Enviar a planta por e-mail</a><a class="btn btn-line" data-wa href="' + LAYWA + '" target="_blank" rel="noopener">' + WAI + 'Enviar pelo WhatsApp</a></div>' +
+      '<p class="lay-hero-mail">Ou anexe a planta (PDF, imagem ou DWG) num e-mail para <a href="' + esc(LAYMAIL) + '">' + S.CONFIG.email + '</a>.</p></div></div>' +
       '<section class="how"><div class="wrap"><div class="sec-head"><div class="eyebrow">Como funciona</div><h2>Da planta ao orçamento em 3 passos</h2></div>' +
       '<div class="steps lay-steps"><div class="step"><b class="n">1</b><h3>Envie a planta</h3><p>Mande a planta baixa (PDF ou imagem) ou só as medidas da sala por <b>WhatsApp</b> ou <b>e-mail</b>. Conte o tipo de espaço e quantas pessoas devem usar.</p></div>' +
       '<div class="step"><b class="n">2</b><h3>Montamos o layout</h3><p>Distribuímos cardio, máquinas, peso livre e funcional em escala, respeitando circulação, portas e pilares, a partir da nossa biblioteca de equipamentos em planta.</p></div>' +
