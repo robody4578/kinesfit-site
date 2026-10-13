@@ -223,6 +223,66 @@ if($("#grid")){
   if(q0){ $("#busca").value = q0; if(hq) hq.value = q0; state.q = q0; renderGrid(); }
 }
 
+/* ---------- envio da planta (página Projeto de layout) ---------- */
+const plF = $("#plForm");
+if(plF){
+  const TIPOS = ["image/jpeg","image/png","image/webp"], MAXN = 3, LIM = 1.8*1024*1024, LADO = 3000;
+  const inp = $("#pArq"), lista = $("#plFiles");
+  const plSay = (h, ok) => { const m = $("#plMsg"); m.className = "orc-msg " + (ok?"ok":"err"); m.innerHTML = h; m.scrollIntoView({behavior:"smooth",block:"nearest"}); };
+  const kb = n => n > 1048576 ? (n/1048576).toFixed(1).replace(".",",") + " MB" : Math.max(1,Math.round(n/1024)) + " KB";
+  const arquivos = () => Array.from(inp.files||[]);
+  inp.addEventListener("change", ()=>{
+    lista.innerHTML = arquivos().slice(0,MAXN).map(f=>'<li>' + esc(f.name) + ' <small>' + kb(f.size) + '</small></li>').join("");
+    $("#plMsg").className = "orc-msg"; $("#plMsg").innerHTML = "";
+  });
+  /* imagem grande: reduz no navegador para não esbarrar no limite do servidor */
+  const reduz = f => new Promise(res=>{
+    if(f.size <= LIM) return res(f);
+    const url = URL.createObjectURL(f), im = new Image();
+    im.onload = ()=>{
+      const k = Math.min(1, LADO/Math.max(im.naturalWidth, im.naturalHeight));
+      const c = document.createElement("canvas"); c.width = Math.round(im.naturalWidth*k); c.height = Math.round(im.naturalHeight*k);
+      const g = c.getContext("2d"); g.fillStyle = "#fff"; g.fillRect(0,0,c.width,c.height); g.drawImage(im,0,0,c.width,c.height);
+      URL.revokeObjectURL(url);
+      const tenta = q => c.toBlob(b=>{ if(!b) return res(f); if(b.size > LIM && q > .5) return tenta(q-.15); res(new File([b], f.name.replace(/\.\w+$/,"") + ".jpg", {type:"image/jpeg"})); }, "image/jpeg", q);
+      tenta(.88);
+    };
+    im.onerror = ()=>{ URL.revokeObjectURL(url); res(f); };
+    im.src = url;
+  });
+  plF.addEventListener("submit", async e=>{
+    e.preventDefault();
+    const v = id => $("#"+id).value.trim(), fs = arquivos();
+    if(!v("pNome")){ plSay("Informe o seu nome.", false); $("#pNome").focus(); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("pMail"))){ plSay("Informe um e-mail válido para recebermos a sua resposta.", false); $("#pMail").focus(); return; }
+    if(!fs.length){ plSay("Escolha ao menos uma imagem da planta.", false); inp.focus(); return; }
+    if(fs.length > MAXN){ plSay("Envie no máximo " + MAXN + " imagens.", false); return; }
+    const ruim = fs.find(f=>TIPOS.indexOf(f.type) < 0);
+    if(ruim){ plSay("O arquivo <b>" + esc(ruim.name) + "</b> não é imagem JPG, PNG ou WEBP. Se a planta está em PDF, tire um print da folha e envie a imagem.", false); return; }
+    const btn = plF.querySelector("button[type=submit]"), label = btn.innerHTML;
+    btn.disabled = true; btn.textContent = "Enviando…";
+    try{
+      const fd = new FormData();
+      ["nome","email","tel","cidade","tipo","msg","website"].forEach(n=>fd.append(n, plF.elements[n].value.trim()));
+      for(const f of fs){ const r = await reduz(f); fd.append("planta[]", r, r.name); }
+      const r = await fetch("/enviar-planta.php", {method:"POST", body:fd});
+      let j = null; try{ j = await r.json(); }catch(x){}
+      if(!r.ok || !j || !j.ok){
+        const er = j && j.erro;
+        if(er === "tipo") throw new Error("Um dos arquivos não é uma imagem válida (JPG, PNG ou WEBP).");
+        if(er === "grande") throw new Error("As imagens ficaram grandes demais. Tente enviar uma de cada vez.");
+        if(er === "limite") throw new Error("Muitos envios seguidos. Aguarde alguns minutos e tente de novo.");
+        throw new Error("");
+      }
+      plF.reset(); lista.innerHTML = "";
+      plSay("<b>Planta enviada!</b> Recebemos os arquivos" + (j.ref ? " (protocolo " + esc(j.ref) + ")" : "") + " e vamos responder por e-mail.", true);
+    }catch(x){
+      plSay((x.message ? esc(x.message) + " " : "Não conseguimos enviar agora. ") + 'Você também pode mandar a planta pelo <a href="' + waLink("Olá! Gostaria de enviar a planta da minha sala para a Kinesfit montar o layout da academia.") + '" target="_blank" rel="noopener"><b>WhatsApp</b></a> ou por e-mail para <a href="mailto:' + CONFIG.email + '"><b>' + CONFIG.email + '</b></a>.', false);
+    }
+    btn.disabled = false; btn.innerHTML = label;
+  });
+}
+
 /* ---------- início ---------- */
 const wl = waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
 $$("[data-wa]").forEach(a=>a.href = wl);

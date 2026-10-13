@@ -341,3 +341,9 @@ nav a.top{white-space:nowrap}
 .lay-hero-acts .btn svg{width:18px;height:18px;flex:none}
 .phead p.lay-hero-mail{font-size:15px;margin-top:12px}
 .lay-hero-mail a{color:#fff;text-decoration:underline}
+.pl-form{max-width:760px}
+.pl-form label small{font-weight:500;color:var(--muted)}
+.pl-form input[type=file]{width:100%;padding:12px;border:1.5px dashed var(--azul);border-radius:10px;background:#fff;font-size:15px}
+.pl-files{list-style:none;margin-top:8px;font-size:14px;color:var(--petroleo)}
+.pl-files small{color:var(--muted)}
+.pl-form .send .btn svg{width:18px;height:18px;flex:none}
