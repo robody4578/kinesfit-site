@@ -5,7 +5,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var esc = S.esc, SITE = S.CONFIG.site, out = {};
   var LOGO = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="7" fill="#a21d54"/><path d="M15 12v40M16.5 32L40 13M16.5 32L40 52" stroke="#fff" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M52 13L44.5 51" stroke="#fff" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/></svg>';
   var WORD = '<span class="lw"><b>KINES<i>FIT</i></b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".10";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".11";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -165,9 +165,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.10">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.11">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header() + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.10"></script>\n<script src="/assets/app.js?v=' + HOJE + '.10"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.11"></script>\n<script src="/assets/app.js?v=' + HOJE + '.11"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -187,16 +187,20 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     ["Como funciona o orçamento?","Todo fornecimento é feito sob orçamento. Você monta a lista com os equipamentos, as quantidades e os modelos, envia por e-mail ou WhatsApp e a Kinesfit responde com uma proposta personalizada."],
     ["Para quais espaços a Kinesfit fornece equipamentos?","Atendemos academias de condomínios residenciais e comerciais, espaços corporativos, construtoras e empreendimentos, além de academias e estúdios."],
     ["Posso pedir vários equipamentos no mesmo orçamento?","Sim. Use o botão + Orçamento em cada equipamento, ajuste as quantidades e informe o modelo desejado. Tudo vai junto em um único pedido."],
-    ["A Kinesfit faz o projeto de layout da academia?","Sim. Envie a planta ou as medidas da sala por WhatsApp ou e-mail e a Kinesfit monta uma sugestão de layout com a distribuição dos equipamentos, a partir da nossa biblioteca de projetos."],
+    ["A Kinesfit faz o projeto de layout da academia?","Sim. Envie uma imagem da planta pelo site, ou as medidas da sala por WhatsApp ou e-mail, e a Kinesfit monta uma sugestão de layout com a distribuição dos equipamentos, a partir da nossa biblioteca de projetos."],
     ["Quais marcas vocês trabalham?","O catálogo reúne equipamentos de marcas como Voeil, Proteus, Alfa, Jet Stream e Queens, entre outras. Se não encontrar o que procura, fale com a gente."]
   ];
   function faqHTML(list){ return '<div class="faq">' + list.map(function(f){ return '<details><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>'; }).join("") + '</div>'; }
   function faqLD(list){ return {"@context":"https://schema.org","@type":"FAQPage","mainEntity":list.map(function(f){ return {"@type":"Question","name":f[0],"acceptedAnswer":{"@type":"Answer","text":f[1]}}; })}; }
   var LAYWA = S.waLink("Olá! Gostaria de enviar a planta da minha sala para a Kinesfit montar o layout da academia.");
-  var LAYMAIL = "mailto:" + S.CONFIG.email + "?subject=" + encodeURIComponent("Projeto de layout da academia") + "&body=" + encodeURIComponent("Olá! Segue em anexo a planta (ou as medidas) da sala para o projeto de layout.\n\nTipo de espaço (condomínio, empresa, construtora):\nCidade:\nObservações:");
+  var LAYMAIL = "mailto:" + S.CONFIG.email + "?subject=" + encodeURIComponent("Projeto de layout da academia") + "&body=" + encodeURIComponent("Olá! Seguem as medidas da sala para o projeto de layout.\n\nTipo de espaço (condomínio, empresa, construtora):\nCidade:\nObservações:");
+  function heroLay(){
+    return '<a class="hero-lay" href="/projeto-de-layout.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 10h7v11M14 3v7h7"/></svg>' +
+      '<span><strong>Fazemos a planta da sua sala fitness <i>– Sem compromisso.</i></strong>Envie a planta da sala e montamos a distribuição dos equipamentos. <u>Ver exemplos, clique aqui</u></span></a>';
+  }
   function layoutHTML(){
     return '<div class="layout-cta"><div><div class="eyebrow">Projeto de layout</div><h2>Envie a planta da sala e a gente monta o layout</h2>' +
-      '<p>Mande a planta ou as medidas do espaço e a Kinesfit sugere a distribuição dos equipamentos, a partir da nossa biblioteca de layouts para condomínios, empresas e construtoras. <a class="lk" href="/projeto-de-layout.html">Ver exemplos de layout</a></p></div>' +
+      '<p>Mande uma imagem da planta ou as medidas do espaço e a Kinesfit sugere a distribuição dos equipamentos, a partir da nossa biblioteca de layouts para condomínios, empresas e construtoras. <a class="lk" href="/projeto-de-layout.html">Ver exemplos de layout</a></p></div>' +
       '<div class="acts"><a class="btn btn-vinho" href="' + LAYWA + '" target="_blank" rel="noopener">' + WAI + 'Enviar pelo WhatsApp</a><a class="btn btn-dark" href="/projeto-de-layout.html#enviar-planta">' + MAILI + 'Enviar a planta pelo site</a></div></div>';
   }
 
@@ -211,7 +215,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     '<main id="inicio">\n<div class="hero"><div class="wrap"><div class="eyebrow">Equipamentos fitness profissionais · venda sob orçamento</div>' +
     '<h1>Equipamentos de musculação e cardio para <em>condomínios e empresas</em></h1>' +
     '<p>Escolha os equipamentos, monte a sua lista e receba uma proposta. Cada orçamento é feito sob medida para o seu projeto.</p>' +
-    '<a class="hero-lay" href="/projeto-de-layout.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 10h7v11M14 3v7h7"/></svg><span><b>Também fazemos o layout da sua academia.</b> Envie a planta da sala e montamos a distribuição dos equipamentos. <u>Ver exemplos</u></span></a>' +
+    heroLay() +
     '<ol class="hero-steps"><li><b>1</b><span>Escolha no catálogo<small>toque em + Orçamento</small></span></li><li><b>2</b><span>Monte a lista<small>quantidades e modelos</small></span></li><li><b>3</b><span>Envie o pedido<small>por e-mail ou WhatsApp</small></span></li><li><b>4</b><span>Receba a proposta<small>personalizada, sem compromisso</small></span></li></ol>' +
     '<div class="actions"><a class="btn btn-vinho" href="#catalogo">Escolher equipamentos</a><a class="btn btn-line" href="/projeto-de-layout.html#enviar-planta">Enviar a planta da sala</a></div></div></div>\n' +
     '<section class="how" id="como-funciona"><div class="wrap"><div class="sec-head"><div class="eyebrow">Como funciona</div><h2>Peça seu orçamento em 4 passos</h2><p>Não é preciso saber o modelo exato nem fechar nada agora: você monta a lista e a Kinesfit responde com uma proposta sob medida.</p></div>' +
@@ -263,7 +267,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       var l = list.filter(function(p){ return p.sub===s; });
       return l.length ? '<div class="subsec" id="' + S.slug(s) + '"><h2>' + s + '</h2><div class="grid">' + l.map(S.cardHTML).join("") + '</div></div>' : "";
     }).join("") : '<div class="subsec"><div class="grid">' + list.map(S.cardHTML).join("") + '</div></div>';
-    var body = '<main><div class="phead"><div class="wrap">' + crumb(cr) + '<div class="eyebrow">' + S.CAT_LABEL[c] + '</div><h1>' + esc(info.h1) + '</h1><p>' + esc(info.intro) + '</p></div></div>' +
+    var body = '<main><div class="phead"><div class="wrap">' + crumb(cr) + '<div class="eyebrow">' + S.CAT_LABEL[c] + '</div><h1>' + esc(info.h1) + '</h1><p>' + esc(info.intro) + '</p>' + heroLay() + '</div></div>' +
       '<div class="cat-body"><div class="wrap">' + secs + '<div style="margin-top:40px">' + layoutHTML() + '</div><div class="prose" style="margin-top:40px">' + info.texto.map(function(t){ return '<p>' + esc(t) + '</p>'; }).join("") + '<p><a class="lk" href="/#contato">Solicitar orçamento</a> · <a class="lk" href="/">Ver todas as categorias</a></p></div></div></div></main>';
     page({path:"/" + S.CAT_SLUG[c] + ".html", title:info.title, desc:info.desc, body:body, ld:[crumbLD(cr), itemList(list)]});
   });
@@ -315,13 +319,13 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     var body = '<main><div class="phead"><div class="wrap">' + crumb(cr) + '<div class="eyebrow">Serviço</div><h1>Projeto de layout para a sua academia</h1>' +
       '<p>Envie a planta ou as medidas da sala e a Kinesfit monta a distribuição dos equipamentos em escala, com áreas de circulação e a lista completa para o orçamento.</p>' +
       '<div class="lay-hero-acts"><a class="btn btn-vinho" href="#enviar-planta">' + MAILI + 'Enviar a planta</a><a class="btn btn-line" href="' + LAYWA + '" target="_blank" rel="noopener">' + WAI + 'Enviar pelo WhatsApp</a></div>' +
-      '<p class="lay-hero-mail">Se preferir, anexe a planta num e-mail para <a href="' + esc(LAYMAIL) + '">' + S.CONFIG.email + '</a>.</p></div></div>' +
+      '<p class="lay-hero-mail">Se preferir, mande as medidas da sala por e-mail para <a href="' + esc(LAYMAIL) + '">' + S.CONFIG.email + '</a>.</p></div></div>' +
       '<section class="how"><div class="wrap"><div class="sec-head"><div class="eyebrow">Como funciona</div><h2>Da planta ao orçamento em 3 passos</h2></div>' +
-      '<div class="steps lay-steps"><div class="step"><b class="n">1</b><h3>Envie a planta</h3><p>Mande a planta baixa (PDF ou imagem) ou só as medidas da sala por <b>WhatsApp</b> ou <b>e-mail</b>. Conte o tipo de espaço e quantas pessoas devem usar.</p></div>' +
+      '<div class="steps lay-steps"><div class="step"><b class="n">1</b><h3>Envie a planta</h3><p>Envie a planta como imagem (foto ou print) pelo formulário abaixo, ou só as medidas da sala por <b>WhatsApp</b> ou <b>e-mail</b>. Conte o tipo de espaço e quantas pessoas vão usar.</p></div>' +
       '<div class="step"><b class="n">2</b><h3>Montamos o layout</h3><p>Distribuímos cardio, máquinas, peso livre e funcional em escala, respeitando circulação, portas e pilares, a partir da nossa biblioteca de equipamentos em planta.</p></div>' +
       '<div class="step"><b class="n">3</b><h3>Receba o projeto e a proposta</h3><p>Você recebe a planta com cada equipamento numerado, a lista com as quantidades e a proposta de fornecimento para o projeto.</p></div></div></div></section>' +
       '<section><div class="wrap"><div class="sec-head"><div class="eyebrow">Exemplos</div><h2>Layouts que já montamos</h2><p>Projetos reais de academias de condomínio, publicados sem identificar o empreendimento.</p></div>' + ex + '</div></section>' +
-      '<section class="how" id="enviar-planta"><div class="wrap"><div class="sec-head"><div class="eyebrow">Envie a sua planta</div><h2>Envie a planta da sala pelo site</h2><p>Anexe até 3 imagens da planta ou de um croqui com as medidas (JPG, PNG ou WEBP). Se a planta estiver em PDF, tire um print ou uma foto da folha.</p></div>' +
+      '<section class="how" id="enviar-planta"><div class="wrap"><div class="sec-head"><div class="eyebrow">Envie a sua planta</div><h2>Envie a planta da sala pelo site</h2><p>Anexe até 3 imagens da planta ou de um croqui com as medidas (JPG, PNG ou WEBP). Por segurança, aceitamos só imagens: tire um print ou uma foto da planta.</p></div>' +
       '<form id="plForm" class="pl-form" action="/enviar-planta.php" method="post" enctype="multipart/form-data" novalidate>' +
       '<div class="f2"><div class="fg"><label for="pNome">Nome *</label><input id="pNome" name="nome" required maxlength="120" autocomplete="name"></div><div class="fg"><label for="pMail">E-mail *</label><input id="pMail" name="email" type="email" required maxlength="160" autocomplete="email"></div></div>' +
       '<div class="f2"><div class="fg"><label for="pTel">Telefone / WhatsApp</label><input id="pTel" name="tel" type="tel" maxlength="40" autocomplete="tel"></div><div class="fg"><label for="pCid">Cidade</label><input id="pCid" name="cidade" maxlength="80" autocomplete="address-level2"></div></div>' +

@@ -258,7 +258,7 @@ if(plF){
     if(!fs.length){ plSay("Escolha ao menos uma imagem da planta.", false); inp.focus(); return; }
     if(fs.length > MAXN){ plSay("Envie no máximo " + MAXN + " imagens.", false); return; }
     const ruim = fs.find(f=>TIPOS.indexOf(f.type) < 0);
-    if(ruim){ plSay("O arquivo <b>" + esc(ruim.name) + "</b> não é imagem JPG, PNG ou WEBP. Se a planta está em PDF, tire um print da folha e envie a imagem.", false); return; }
+    if(ruim){ plSay("O arquivo <b>" + esc(ruim.name) + "</b> não é imagem JPG, PNG ou WEBP. Por segurança, aceitamos só imagens: tire um print ou uma foto da planta.", false); return; }
     const btn = plF.querySelector("button[type=submit]"), label = btn.innerHTML;
     btn.disabled = true; btn.textContent = "Enviando…";
     try{
