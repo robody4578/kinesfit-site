@@ -5,7 +5,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var esc = S.esc, SITE = S.CONFIG.site, out = {};
   var LOGO = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="7" fill="#a21d54"/><path d="M15 12v40M16.5 32L40 13M16.5 32L40 52" stroke="#fff" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M52 13L44.5 51" stroke="#fff" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/></svg>';
   var WORD = '<span class="lw"><b>KINES<i>FIT</i></b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".9";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".10";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -165,9 +165,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.9">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.10">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header() + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.9"></script>\n<script src="/assets/app.js?v=' + HOJE + '.9"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.10"></script>\n<script src="/assets/app.js?v=' + HOJE + '.10"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -211,8 +211,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     '<main id="inicio">\n<div class="hero"><div class="wrap"><div class="eyebrow">Equipamentos fitness profissionais · venda sob orçamento</div>' +
     '<h1>Equipamentos de musculação e cardio para <em>condomínios e empresas</em></h1>' +
     '<p>Escolha os equipamentos, monte a sua lista e receba uma proposta. Cada orçamento é feito sob medida para o seu projeto.</p>' +
+    '<a class="hero-lay" href="/projeto-de-layout.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 10h7v11M14 3v7h7"/></svg><span><b>Também fazemos o layout da sua academia.</b> Envie a planta da sala e montamos a distribuição dos equipamentos. <u>Ver exemplos</u></span></a>' +
     '<ol class="hero-steps"><li><b>1</b><span>Escolha no catálogo<small>toque em + Orçamento</small></span></li><li><b>2</b><span>Monte a lista<small>quantidades e modelos</small></span></li><li><b>3</b><span>Envie o pedido<small>por e-mail ou WhatsApp</small></span></li><li><b>4</b><span>Receba a proposta<small>personalizada, sem compromisso</small></span></li></ol>' +
-    '<div class="actions"><a class="btn btn-vinho" href="#catalogo">Escolher equipamentos</a><a class="btn btn-line" href="#como-funciona">Ver como funciona</a></div></div></div>\n' +
+    '<div class="actions"><a class="btn btn-vinho" href="#catalogo">Escolher equipamentos</a><a class="btn btn-line" href="/projeto-de-layout.html#enviar-planta">Enviar a planta da sala</a></div></div></div>\n' +
     '<section class="how" id="como-funciona"><div class="wrap"><div class="sec-head"><div class="eyebrow">Como funciona</div><h2>Peça seu orçamento em 4 passos</h2><p>Não é preciso saber o modelo exato nem fechar nada agora: você monta a lista e a Kinesfit responde com uma proposta sob medida.</p></div>' +
     '<div class="steps"><div class="step"><b class="n">1</b><h3>Escolha os equipamentos</h3><p>Navegue pelo catálogo e toque em <b>+ Orçamento</b> nos itens que interessam. Pode misturar musculação, cardio e acessórios.</p></div>' +
     '<div class="step"><b class="n">2</b><h3>Monte a sua lista</h3><p>Abra <b>Meu orçamento</b> no topo da página, ajuste a quantidade de cada item e informe modelo, cor ou voltagem. Equipamento fora do catálogo? É só incluir à mão.</p></div>' +
