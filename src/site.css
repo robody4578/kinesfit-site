@@ -320,3 +320,30 @@ footer .bot{padding-top:20px;display:flex;justify-content:space-between;gap:10px
 @media(max-width:480px){.hero-steps{grid-template-columns:1fr}.hero{padding:56px 0 52px}}
 nav a.top{white-space:nowrap}
 @media(min-width:961px){nav a.top{padding:10px 10px}}
+/* Projeto de layout */
+.layout-cta{display:grid;grid-template-columns:1.4fr auto;gap:28px;align-items:center;background:var(--azul-l);border-radius:var(--radius);padding:32px 36px;border-left:5px solid var(--vinho)}
+.layout-cta h2{font-size:clamp(24px,3vw,32px);color:var(--petroleo);margin-top:4px}
+.layout-cta p{color:var(--muted);margin-top:8px;max-width:640px}
+.layout-cta .acts{display:flex;flex-direction:column;gap:10px}
+.layout-cta .btn svg{width:18px;height:18px;flex:none}
+.lay-note{margin-top:10px;font-size:15px}
+@media(max-width:760px){.layout-cta{grid-template-columns:1fr;padding:24px 20px}.layout-cta .acts{flex-direction:row;flex-wrap:wrap}}
+.lay-steps{grid-template-columns:repeat(3,1fr)}
+.lay-ex{margin:0 0 56px}
+.lay-ex figcaption h3{font-size:clamp(22px,2.6vw,28px);color:var(--petroleo)}
+.lay-ex figcaption p{color:var(--muted);max-width:760px;margin:6px 0 16px}
+.lay-ex img{width:100%;height:auto;border:1px solid #dde4e8;border-radius:var(--radius);background:#f6f5f2}
+.lay-zoom{margin-top:8px;font-size:15px}
+@media(max-width:960px){.lay-steps{grid-template-columns:1fr}}
+@media(min-width:961px) and (max-width:1240px){nav a.top{padding:10px 8px;font-size:14.5px}.orc-btn span.lb{display:none}}
+@media(min-width:961px) and (max-width:1060px){nav a.top{padding:10px 5px;font-size:14px}.hbar{gap:8px}}
+.lay-hero-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.lay-hero-acts .btn svg{width:18px;height:18px;flex:none}
+.phead p.lay-hero-mail{font-size:15px;margin-top:12px}
+.lay-hero-mail a{color:#fff;text-decoration:underline}
+.pl-form{max-width:760px}
+.pl-form label small{font-weight:500;color:var(--muted)}
+.pl-form input[type=file]{width:100%;padding:12px;border:1.5px dashed var(--azul);border-radius:10px;background:#fff;font-size:15px}
+.pl-files{list-style:none;margin-top:8px;font-size:14px;color:var(--petroleo)}
+.pl-files small{color:var(--muted)}
+.pl-form .send .btn svg{width:18px;height:18px;flex:none}
