@@ -33,7 +33,7 @@ nav ul{list-style:none;display:flex;gap:4px;align-items:center}
 nav li{position:relative}
 nav a.top,nav button.top{display:block;padding:10px 14px;font-weight:500;font-size:15px;border-radius:8px;color:#fff}
 nav a.top:hover,nav button.top:hover{background:rgba(255,255,255,.1)}
-nav .sub{display:none;position:absolute;top:100%;left:0;min-width:210px;background:#fff;color:var(--texto);border-radius:10px;padding:8px;box-shadow:0 12px 30px rgba(0,0,0,.2)}
+nav .sub{display:none;position:absolute;z-index:20;top:100%;left:0;min-width:210px;background:#fff;color:var(--texto);border-radius:10px;padding:8px;box-shadow:0 12px 30px rgba(0,0,0,.2)}
 nav li:hover>.sub,nav li:focus-within>.sub{display:block}
 nav .sub a{display:block;padding:9px 12px;border-radius:6px;font-size:14.5px}
 nav .sub a:hover{background:var(--azul-l);color:var(--vinho)}
