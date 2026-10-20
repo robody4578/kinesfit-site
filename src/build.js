@@ -299,7 +299,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<section class="rel"><div class="wrap"><h2>Outros equipamentos que podem interessar</h2><div class="grid">' + rel.map(S.cardHTML).join("") + '</div></div></section></main>';
     var ld = [crumbLD(cr), {"@context":"https://schema.org","@type":"Product","name":p.nome,"description":descProd(p),"image":[absImg(p)],"sku":p.id,"category":S.CAT_LABEL[cat] + " > " + p.sub,"url":SITE+path}];
     if(p.marca) ld[1].brand = {"@type":"Brand","name":p.marca};
-    if(p.preco) ld[1].offers = {"@type":"AggregateOffer","lowPrice":p.preco,"priceCurrency":"BRL","offerCount":1,"url":SITE+path};
+    if(p.preco) ld[1].offers = {"@type":"Offer","price":p.preco,"priceCurrency":"BRL","url":SITE+path};
     page({path:path, title:tituloProd(p), desc:descProd(p), body:body, ld:ld, image:absImg(p), ogType:"product"});
   });
 
