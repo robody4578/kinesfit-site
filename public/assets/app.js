@@ -123,12 +123,25 @@ async function sendMail(btn){
 }
 function renderForm(){
   const box = $("#orcForm"); if(!box) return;
+  if(box.hasAttribute("data-simple")){
+    box.innerHTML =
+     '<form id="form" novalidate onsubmit="return false">' +
+      '<div class="fg"><label for="fNome">Nome *</label><input id="fNome" required autocomplete="name"></div>' +
+      '<div class="fg"><label for="fEmp">Empresa ou empreendimento</label><input id="fEmp" autocomplete="organization"></div>' +
+      '<div class="fg"><label for="fMail">E-mail *</label><input id="fMail" type="email" autocomplete="email"></div>' +
+      '<div class="fg"><label for="fMsg">Detalhes do projeto</label><textarea id="fMsg" placeholder="Tipo de espaço, metragem, prazo, cidade…"></textarea></div>' +
+      '<div class="hp" aria-hidden="true"><label for="fSite">Não preencha</label><input id="fSite" tabindex="-1" autocomplete="off"></div>' +
+      '<div class="send"><button type="button" class="btn btn-primary" data-send="mail">Enviar pedido</button></div>' +
+      '<div id="orcMsg" class="orc-msg" role="status" aria-live="polite"></div>' +
+     '</form>';
+    return;
+  }
   box.innerHTML =
    '<form id="form" novalidate onsubmit="return false">' +
     '<h3 class="fh">1. Itens do orçamento</h3>' +
     '<div class="orc-items" id="orcItems"></div>' +
     '<div class="orc-add"><input id="cNome" type="text" maxlength="120" placeholder="Outro equipamento (nome ou descrição)" aria-label="Outro equipamento"><input id="cQ" type="number" min="1" max="999" value="1" inputmode="numeric" aria-label="Quantidade"><button type="button" class="btn btn-dark" data-addcustom>Adicionar</button></div>' +
-    '<p class="hint"><a href="/#catalogo" class="lk">Ver mais equipamentos no catálogo</a></p>' +
+    '<p class="hint"><a href="/#equipamentos" class="lk">Ver mais equipamentos no catálogo</a></p>' +
     '<h3 class="fh">2. Seus dados</h3>' +
     '<div class="f2"><div class="fg"><label for="fNome">Nome *</label><input id="fNome" required autocomplete="name"></div><div class="fg"><label for="fEmp">Empresa / condomínio</label><input id="fEmp" autocomplete="organization"></div></div>' +
     '<div class="f2"><div class="fg"><label for="fMail">E-mail *</label><input id="fMail" type="email" autocomplete="email"></div><div class="fg"><label for="fTel">Telefone / WhatsApp</label><input id="fTel" type="tel" autocomplete="tel"></div></div>' +
@@ -146,7 +159,14 @@ document.addEventListener("click", e=>{
   const t = e.target.closest("[data-add],[data-open],[data-close],[data-clear],[data-dec],[data-inc],[data-rm],[data-send],[data-addcustom],#dGo,#ov");
   if(!t) return;
   if(t.dataset.add){ addItem(t.dataset.add); return; }
-  if(t.hasAttribute("data-open")){ openDrawer(); return; }
+  if(t.hasAttribute("data-open")){
+    if(t.classList.contains("orc-btn") && !total()){
+      const f = $("#proposta") || $("#orcForm");
+      if(f) f.scrollIntoView({behavior:"smooth",block:"start"}); else location.href = "/#proposta";
+      return;
+    }
+    openDrawer(); return;
+  }
   if(t.hasAttribute("data-close") || t.id==="ov"){ closeDrawer(); return; }
   if(t.hasAttribute("data-clear")){ if(items.length && confirm("Remover todos os itens da lista?")){ items=[]; save(); render(); } return; }
   if(t.dataset.dec){ const it=byK(t.dataset.dec); if(it) setQ(it.k,(it.q||1)-1,true); return; }
@@ -184,43 +204,17 @@ if(hq){
   hq.addEventListener("input", ()=>{
     const l = achar(hq.value);
     if(!hq.value.trim()){ fecha(); return; }
-    hres.innerHTML = l.length ? l.slice(0,8).map(p=>'<a href="' + pUrl(p) + '"><span>' + esc(p.nome) + '<small>' + esc(p.sub) + '</small></span><b>' + (p.preco ? "a partir de R$ " + Number(p.preco).toLocaleString("pt-BR") : "Sob orçamento") + '</b></a>').join("") + (l.length>8 ? '<a class="todos" href="/?q=' + encodeURIComponent(hq.value.trim()) + '#catalogo">Ver todos os ' + l.length + ' resultados</a>' : "")
+    hres.innerHTML = l.length ? l.slice(0,12).map(p=>'<a href="' + pUrl(p) + '"><span>' + esc(p.nome) + '<small>' + esc(p.sub) + '</small></span><b>' + (p.preco ? "a partir de R$ " + Number(p.preco).toLocaleString("pt-BR") : "Sob orçamento") + '</b></a>').join("")
       : '<p>Nenhum equipamento encontrado. Fale com a gente pelo WhatsApp.</p>';
     hres.hidden = false;
   });
   $("#hsForm").addEventListener("submit", e=>{
     const l = achar(hq.value);
     if(l.length===1){ e.preventDefault(); location.href = pUrl(l[0]); }
-    else if($("#grid")){ e.preventDefault(); fecha(); $("#busca").value = hq.value; state.q = hq.value; renderGrid(); $("#catalogo").scrollIntoView({behavior:"smooth"}); }
+    else { e.preventDefault(); hq.dispatchEvent(new Event("input")); }
   });
   document.addEventListener("click", e=>{ if(!e.target.closest(".hsearch")) fecha(); });
   hq.addEventListener("keydown", e=>{ if(e.key==="Escape") fecha(); });
-}
-
-/* ---------- catálogo da página inicial (filtros e busca) ---------- */
-const state = {cat:"Todos", sub:"Todos", q:""};
-function renderChips(){
-  $("#chipsCat").innerHTML = ["Todos"].concat(CATS).map(c=>'<button type="button" class="chip ' + (state.cat===c?"on":"") + '" data-fcat="' + c + '">' + (c==="Todos"?"Todos":CAT_LABEL[c]) + '</button>').join("");
-  const subs = SUBS[state.cat] || [];
-  $("#chipsSub").innerHTML = subs.length ? ["Todos"].concat(subs).map(s=>'<button type="button" class="chip ' + (state.sub===s?"on":"") + '" data-fsub="' + s + '">' + s + '</button>').join("") : "";
-}
-function renderGrid(){
-  const q = norm(state.q);
-  const list = equipamentos.filter(p => (state.cat==="Todos"||p.categoria===state.cat) && (state.sub==="Todos"||p.sub===state.sub) && (!q || norm([p.nome,p.marca,p.modelo,p.sub,p.categoria].join(" ")).includes(q)));
-  $("#grid").innerHTML = list.length ? list.map(cardHTML).join("") : '<p class="empty">Nenhum equipamento encontrado. <a href="#contato" style="color:var(--grafite);font-weight:600">Fale com a gente</a> — podemos ter o que você procura.</p>';
-  $("#contagem").textContent = list.length + (list.length===1?" equipamento":" equipamentos");
-  render();
-}
-if($("#grid")){
-  document.addEventListener("click", e=>{
-    const t = e.target.closest("[data-fcat],[data-fsub]"); if(!t) return;
-    if(t.dataset.fcat){ state.cat=t.dataset.fcat; state.sub="Todos"; } else state.sub=t.dataset.fsub;
-    renderChips(); renderGrid();
-  });
-  $("#busca").addEventListener("input", e=>{ state.q=e.target.value; renderGrid(); });
-  renderChips();
-  const q0 = new URLSearchParams(location.search).get("q");
-  if(q0){ $("#busca").value = q0; if(hq) hq.value = q0; state.q = q0; renderGrid(); }
 }
 
 /* ---------- envio da planta (página Projeto de layout) ---------- */
