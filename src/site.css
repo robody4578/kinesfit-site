@@ -563,3 +563,5 @@ nav .sub{min-width:190px}
 .kh-dph img{mix-blend-mode:multiply;padding:12px}
 .kh-photo{height:auto!important;aspect-ratio:4/3}
 .kh-plan{display:block;background:#fff;border:1px solid var(--cinza)}.kh-plan img{width:100%;height:auto;display:block}
+.kh-dph{background:#0d0b0a}
+.kh-dph img{mix-blend-mode:normal;padding:0;object-fit:cover;object-position:49% 50%}
