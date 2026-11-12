@@ -3,15 +3,17 @@
 function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var S = new Function("equipamentos", SH + "\n;return {CONFIG:CONFIG,CATS:CATS,SUBS:SUBS,CAT_LABEL:CAT_LABEL,CAT_SLUG:CAT_SLUG,esc:esc,slug:slug,waLink:waLink,tipo:tipo,localImg:localImg,altText:altText,imgTag:imgTag,pUrl:pUrl,cardHTML:cardHTML,brl:brl,precoHTML:precoHTML};")(DATA);
   var esc = S.esc, SITE = S.CONFIG.site, out = {};
-  var LOGO = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="7" fill="#a21d54"/><path d="M15 12v40M16.5 32L40 13M16.5 32L40 52" stroke="#fff" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M52 13L44.5 51" stroke="#fff" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/></svg>';
-  var WORD = '<span class="lw"><b>KINES<i>FIT</i></b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".12";
+  var SYM = function(c){ return '<svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="22" y="12" width="9" height="72" rx="1.5" fill="' + c + '"/><path d="M70 14 C54 20 38 34 34 46 C32 52 38 54 44 57 C56 63 66 72 74 82" stroke="#A78A63" stroke-width="8"/></svg>'; };
+  var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
+  var WORD = '<span class="lw"><b>KINESFIT</b></span>';
+  var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".13";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
   var OGIMG = SITE + "/assets/og-kinesfit.png";
 
-  var PHURI = "data:image/svg+xml;utf8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#e9eef1"/><path d="M70 60v80M70 102l50-42M84 98l40 42" stroke="#b8c6ce" stroke-width="14" stroke-linecap="round" fill="none"/></svg>');
+  var PHURI = "data:image/svg+xml;utf8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#F6F3ED"/><path d="M70 60v80M70 102l50-42M84 98l40 42" stroke="#E7E5E0" stroke-width="14" stroke-linecap="round" fill="none"/></svg>');
   var IMGFAIL = '<script>function imgFail(el){try{if(typeof equipamentos==="undefined"){el.dataset.r=(+el.dataset.r||0)+1;if(el.dataset.r<20){setTimeout(function(){imgFail(el)},250);return}}else if(el.dataset.step==="0"){var p=equipamentos.find(function(x){return x.id===el.dataset.pid});if(p){el.dataset.step="1";el.src=p.img;return}}}catch(e){}el.onerror=null;el.src="' + PHURI + '"}</script>';
   function cut(s, n){ s = s.replace(/\s+/g," ").trim(); if(s.length<=n) return s; s = s.slice(0,n-1); return s.slice(0,s.lastIndexOf(" ")).replace(/[,;:\-–—]+$/,"") + "…"; }
   function J(o){ return '<script type="application/ld+json">' + JSON.stringify(o).replace(/</g,String.fromCharCode(92)+"u003c") + '</script>'; }
@@ -149,7 +151,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<div class="hsearch"><div class="wrap"><form action="/" method="get" role="search" id="hsForm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input type="search" name="q" id="hq" placeholder="Buscar equipamento por nome, marca ou modelo…" aria-label="Buscar equipamentos" autocomplete="off"><button type="submit">Buscar</button></form><div class="hres" id="hres" hidden></div></div></div></header>';
   }
   function footer(){
-    return '<footer><div class="wrap"><div class="top"><a href="/" class="logo" aria-label="Kinesfit">' + LOGO + WORD + '</a>' +
+    return '<footer><div class="wrap"><div class="top"><a href="/" class="logo" aria-label="Kinesfit">' + LOGO_DARK + WORD_F + '</a>' +
       '<ul><li><a href="/musculacao.html">Musculação</a></li><li><a href="/cardio.html">Cardio Máquinas</a></li><li><a href="/acessorios.html">Acessórios</a></li><li><a href="/#publico">Para quem</a></li><li><a href="/projeto-de-layout.html">Projeto de layout</a></li><li><a href="/#sobre">Sobre</a></li><li><a href="/#contato">Contato</a></li></ul></div>' +
       '<div class="bot"><span>© <span id="ano"></span> Kinesfit. Todos os direitos reservados. · <a href="mailto:' + S.CONFIG.email + '">' + S.CONFIG.email + '</a> · WhatsApp ' + S.CONFIG.whatsappExibido + '</span><span>Todo fornecimento é feito sob orçamento.</span></div></div></footer>' +
       '<a class="wa" data-wa href="' + WAURL + '" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg></a>';
@@ -159,15 +161,15 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     var h = '<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
       '<title>' + esc(o.title) + '</title>\n<meta name="description" content="' + esc(o.desc) + '">\n' +
       '<meta name="robots" content="' + (o.noindex ? "noindex, follow" : "index, follow, max-image-preview:large") + '">\n' +
-      '<link rel="canonical" href="' + url + '">\n<meta name="theme-color" content="#2e3f4f">\n' +
+      '<link rel="canonical" href="' + url + '">\n<meta name="theme-color" content="#25282A">\n' +
       '<meta property="og:type" content="' + (o.ogType||"website") + '">\n<meta property="og:locale" content="pt_BR">\n<meta property="og:site_name" content="Kinesfit">\n' +
       '<meta property="og:title" content="' + esc(o.title) + '">\n<meta property="og:description" content="' + esc(o.desc) + '">\n<meta property="og:url" content="' + url + '">\n' +
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
-      '<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.12">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.13">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header() + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.12"></script>\n<script src="/assets/app.js?v=' + HOJE + '.12"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.13"></script>\n<script src="/assets/app.js?v=' + HOJE + '.13"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -353,7 +355,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   out["robots.txt"] = "User-agent: *\nAllow: /\nDisallow: /orcamento.html\nDisallow: /enviar.php\nDisallow: /enviar-planta.php\n\nSitemap: " + SITE + "/sitemap.xml\n";
   out["assets/site.css"] = CSS;
   out["assets/app.js"] = APP;
-  out["assets/favicon.svg"] = '<svg xmlns="http://www.w3.org/2000/svg" ' + LOGO.slice(5).replace(' aria-hidden="true"','') + "\n";
+  out["assets/favicon.svg"] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none"><rect width="96" height="96" rx="14" fill="#25282A"/><rect x="22" y="12" width="9" height="72" rx="1.5" fill="#F6F3ED"/><path d="M70 14 C54 20 38 34 34 46 C32 52 38 54 44 57 C56 63 66 72 74 82" stroke="#A78A63" stroke-width="8"/></svg>' + "\n";
   out["assets/catalogo.js"] = "const equipamentos = " + JSON.stringify(DATA) + ";\n" + SH;
   out["enviar.php"] = PHP;
   /* endereços antigos (vindos da Body Center) redirecionam para o novo */
