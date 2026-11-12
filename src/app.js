@@ -20,7 +20,7 @@ document.body.insertAdjacentHTML("beforeend",
  '<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Meu orçamento" aria-hidden="true">' +
   '<div class="dh"><h2>Meu orçamento</h2><button type="button" class="dx" data-close aria-label="Fechar">×</button></div>' +
   '<div class="db"><p class="dsub">Ajuste a quantidade e informe o modelo de cada item. Depois é só enviar o pedido por e-mail ou WhatsApp.</p><div class="orc-items" id="dItems"></div></div>' +
-  '<div class="df"><a class="btn btn-vinho" id="dGo" href="/orcamento.html">Finalizar pedido de orçamento</a><button type="button" class="clr" data-clear>Limpar lista</button></div>' +
+  '<div class="df"><a class="btn btn-primary" id="dGo" href="/orcamento.html">Finalizar pedido de orçamento</a><button type="button" class="clr" data-clear>Limpar lista</button></div>' +
  '</aside>' +
  '<div class="toast" id="toast" role="status" aria-live="polite"></div>' +
  '<button type="button" class="orc-fab" id="orcFab" data-open hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg><span>Ver meu orçamento</span><b id="fabN">0</b></button>');
@@ -135,7 +135,7 @@ function renderForm(){
     '<div class="fg"><label for="fTipo">Tipo de espaço</label><select id="fTipo"><option value="">Selecione</option><option>Condomínio</option><option>Espaço corporativo</option><option>Construtora / empreendimento</option><option>Academia</option><option>Outro</option></select></div>' +
     '<div class="fg"><label for="fMsg">Mensagem</label><textarea id="fMsg" placeholder="Prazo, local de entrega, observações…"></textarea></div>' +
     '<div class="hp" aria-hidden="true"><label for="fSite">Não preencha</label><input id="fSite" tabindex="-1" autocomplete="off"></div>' +
-    '<div class="send"><button type="button" class="btn btn-vinho" data-send="mail">Enviar por e-mail</button><button type="button" class="btn btn-wa" data-send="wa">Enviar pelo WhatsApp</button></div>' +
+    '<div class="send"><button type="button" class="btn btn-primary" data-send="mail">Enviar por e-mail</button><button type="button" class="btn btn-wa" data-send="wa">Enviar pelo WhatsApp</button></div>' +
     '<div id="orcMsg" class="orc-msg" role="status" aria-live="polite"></div>' +
     '<p class="hint">Escolha como prefere enviar. Respondemos com uma proposta personalizada, sem compromisso.</p>' +
    '</form>';
@@ -207,7 +207,7 @@ function renderChips(){
 function renderGrid(){
   const q = norm(state.q);
   const list = equipamentos.filter(p => (state.cat==="Todos"||p.categoria===state.cat) && (state.sub==="Todos"||p.sub===state.sub) && (!q || norm([p.nome,p.marca,p.modelo,p.sub,p.categoria].join(" ")).includes(q)));
-  $("#grid").innerHTML = list.length ? list.map(cardHTML).join("") : '<p class="empty">Nenhum equipamento encontrado. <a href="#contato" style="color:var(--vinho);font-weight:600">Fale com a gente</a> — podemos ter o que você procura.</p>';
+  $("#grid").innerHTML = list.length ? list.map(cardHTML).join("") : '<p class="empty">Nenhum equipamento encontrado. <a href="#contato" style="color:var(--grafite);font-weight:600">Fale com a gente</a> — podemos ter o que você procura.</p>';
   $("#contagem").textContent = list.length + (list.length===1?" equipamento":" equipamentos");
   render();
 }
