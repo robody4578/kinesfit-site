@@ -7,7 +7,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
   var WORD = '<span class="lw"><b>KINESFIT</b></span>';
   var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".26";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".27";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -28,6 +28,10 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     "Acessórios":["Acessórios ajudam a ampliar as possibilidades de treino sem ocupar muito espaço. Você pode somar vários itens na mesma lista e pedir tudo em um único orçamento.","Dá para combinar este item com outros acessórios e equipamentos na mesma solicitação. Informe quantidades e modelos na lista de orçamento."]
   };
   var ESPEC = {
+    "bicicleta-spinning-voeil-a-1000":[["Disco de inércia","18 kg"],["Sistema de transmissão","Correia"],["Rolamentos","Duplo, com blindagem"],["Pedais","Diferenciados, com encaixe duplo, clip e firma-pés"],["Selim","Anatômico"],["Guidão","Revestimento em resina de PVC, com ajuste rápido de altura"],["Assento","Ajuste rápido de profundidade e altura"],["Freio","Regulagem no sistema superior e sistema de rápida frenagem integrado"],["Perfil do tubo","Oblongo, com 3 mm de parede"],["Estrutura","Aço carbono com pintura eletrostática preta"],["Proteções","Carenagens no disco de inércia, nos pés de apoio e na correia"],["Segurança","Reforço no pé de vela"],["Regulagens","Cromadas"],["Locomoção","Rodinhas"],["Niveladores","Nos pés"],["Dimensões (C x L x A)","1,10 x 0,53 x 0,89 m"],["Peso","65 kg"]],
+    "bicicleta-vertical-voeil-a-2000":[["Capacidade de uso","160 kg"],["Resistência","15 níveis, eletromagnética"],["Programas","11 pré-definidos"],["Dimensões (C x L x A)","115 x 58 x 150 cm"],["Peso","85 kg"],["Estrutura","Aço carbono com pintura eletrostática preta"],["Assento","Ajuste simples e rápido, com 13 pontos de regulagem"],["Pedais","Grandes, com rolamentos blindados e firma-pé"],["Eletricidade","Geração eletromagnética, sem energia externa (com pré-disposição para fonte externa)"],["Display","Intuitivo, teclado tátil com tecnologia LED"],["Informações do display","Tempo, distância, RPM, resistência (carga), batimentos cardíacos, gasto calórico (calorias e METS)"],["Painel","Faixa motivacional, letras grandes, suportes para garrafa e acessórios"],["Monitoramento cardíaco","Handgrip e frequencímetro Polar"],["Garantia","12 meses contra defeitos de fabricação"]],
+    "bicicleta-horizontal-voeil-a-3000":[["Capacidade de uso","160 kg"],["Resistência","15 níveis, eletromagnética"],["Programas","11 pré-definidos"],["Dimensões (C x L x A)","163 x 58 x 133 cm"],["Peso","99 kg"],["Estrutura","Aço carbono com pintura eletrostática preta"],["Assento","Ajuste simples e rápido, com 11 pontos de regulagem"],["Pedais","Grandes, com rolamentos blindados e firma-pé"],["Eletricidade","Geração eletromagnética, sem energia externa (com pré-disposição para fonte externa)"],["Display","Intuitivo, teclado tátil com tecnologia LED"],["Informações do display","Tempo, distância, RPM, resistência (carga), batimentos cardíacos, gasto calórico (calorias e METS)"],["Painel","Faixa motivacional, letras grandes, suportes para garrafa e acessórios"],["Monitoramento cardíaco","Handgrip e frequencímetro Polar"],["Garantia","12 meses contra defeitos de fabricação"]],
+    "eliptico-profissional-eletromagnetico-voeil-a-4000":[["Capacidade de uso","160 kg"],["Resistência","8 níveis, eletromagnética"],["Programas","12 pré-definidos"],["Dimensões (C x L x A)","199 x 71 x 178 cm"],["Peso","172 kg"],["Altura da plataforma","18 cm"],["Dimensões dos pedais","42 x 20 cm"],["Distância entre pedais","3,5 cm"],["Movimento","Sincronizado dos membros superiores"],["Estrutura","Aço carbono com pintura eletrostática preta"],["Eletricidade","Geração eletromagnética, sem energia externa (com pré-disposição para fonte externa)"],["Display","Intuitivo, teclado tátil com tecnologia LED"],["Informações do display","Tempo, distância, RPM, resistência (carga), batimentos cardíacos, gasto calórico (calorias e METS)"],["Painel","Faixa motivacional, letras grandes, suportes para garrafa e acessórios"],["Monitoramento cardíaco","Handgrip e frequencímetro Polar"],["Garantia","12 meses contra defeitos de fabricação"]],
     "vst-5900":[["Motor","3,5 HP"],["Velocidade","1 a 18 km/h"],["Inclinação","Eletrônica, 15 níveis"],["Esteira de corrida","500 x 1360 mm"],["Peso máximo do usuário","140 kg"],["Programas","12"]],
     "vst-375":[["Motor","3 HP"],["Velocidade","1 a 18 km/h"],["Inclinação","Eletrônica, 15 níveis"],["Esteira de corrida","480 x 1350 mm"],["Peso máximo do usuário","150 kg"],["Programas","12"]],
     "vst-803":[["Motor","2,5 HP DC, sem escova"],["Inclinação","Elétrica, até 12%"],["Área de corrida","150 x 51 cm"],["Peso máximo do usuário","150 kg"],["Painel","Touch, com acesso a aplicativos"]],
@@ -102,6 +106,12 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     "puxadores-voeil":[["Modelos","17 opções (barra reta, dorsal, V, cordas, pegadores simples e rotativos)"],["Material","Aço e corda"],["Uso","Máquinas com sistema de polias"]],
     "suportes-voeil-para-academia-anilhas-colchonetes-dumbbell-hasteres-tornozeleiras-e-puxadores":[["Material","Aço carbono"],["Acabamento","Pintura eletrostática"]]
   };
+  var SEO = {
+    "bicicleta-spinning-voeil-a-1000":["Bicicleta Spinning Voeil A-1000 | Disco de 18 kg | Kinesfit","Bicicleta de spinning Voeil A-1000 com disco de inércia de 18 kg, transmissão por correia e estrutura em aço carbono. Peça orçamento na Kinesfit."],
+    "bicicleta-vertical-voeil-a-2000":["Bicicleta Vertical Voeil A-2000 | Ergométrica | Kinesfit","Bicicleta ergométrica vertical Voeil A-2000: 15 níveis de resistência eletromagnética, 11 programas e uso até 160 kg. Peça orçamento na Kinesfit."],
+    "bicicleta-horizontal-voeil-a-3000":["Bicicleta Horizontal Voeil A-3000 | Ergométrica | Kinesfit","Bicicleta ergométrica horizontal Voeil A-3000 com encosto, 15 níveis de resistência eletromagnética e 11 programas. Peça orçamento na Kinesfit."],
+    "eliptico-profissional-eletromagnetico-voeil-a-4000":["Elíptico Profissional Voeil A-4000 | Eletromagnético | Kinesfit","Elíptico profissional eletromagnético Voeil A-4000: 8 níveis de resistência, 12 programas, plataforma baixa e uso até 160 kg. Peça orçamento na Kinesfit."]
+  };
   function specs(p){
     var r = [["Categoria", S.CAT_LABEL[p.categoria]], ["Linha", p.sub]];
     if(p.marca) r.push(["Marca", p.marca]);
@@ -111,6 +121,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     return r;
   }
   function descProd(p){
+    if(SEO[p.id]) return SEO[p.id][1];
     var t = S.tipo(p);
     var base = p.nome + ": " + t[1] + (p.marca ? " " + p.marca : "") + " para academias de condomínios e empresas";
     var ex = (ESPEC[p.id]||[]).slice(0,2).map(function(x){ return x[0].toLowerCase() + " " + x[1]; });
@@ -120,6 +131,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     return cut(d, 158);
   }
   function tituloProd(p){
+    if(SEO[p.id]) return SEO[p.id][0];
     var t = S.tipo(p), a = p.nome + " | " + cap(t[1]) + " | Kinesfit";
     var b = p.nome + " | " + cap(t[1]) + " para academias | Kinesfit";
     return b.length <= 68 ? b : a;
@@ -164,9 +176,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.26">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.27">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header(o.search) + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.26"></script>\n<script src="/assets/app.js?v=' + HOJE + '.26"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.27"></script>\n<script src="/assets/app.js?v=' + HOJE + '.27"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
