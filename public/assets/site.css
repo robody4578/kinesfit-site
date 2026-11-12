@@ -558,3 +558,6 @@ nav .sub{min-width:190px}
 #proposta input,#proposta textarea{border-radius:4px}
 #proposta .btn{border-radius:4px;padding:16px 30px}
 @media(max-width:700px){.kh{padding:64px 0}.kh-in{padding:0 20px}.kh-cols{gap:40px}.kh h2{font-size:30px}.kh-tph{height:340px}.kh-ph,.kh-dph{height:340px!important}}
+.kh-photo{overflow:hidden}.kh-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.kh-dph{background:var(--marfim)}
+.kh-dph img{mix-blend-mode:multiply;padding:12px}
