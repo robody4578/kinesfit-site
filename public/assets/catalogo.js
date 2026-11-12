@@ -4,7 +4,7 @@ const CATS = ["Musculação","Cardio","Acessórios"];
 const SUBS = {"Musculação":["Estações","Bancos","Gaiolas","Máquinas","Peso Livre"],"Cardio":["Esteiras","Spinning","Ergométricas","Elípticos","Plataforma"],"Acessórios":[]};
 const CAT_LABEL = {"Musculação":"Musculação","Cardio":"Cardio Máquinas","Acessórios":"Acessórios"};
 const CAT_SLUG = {"Musculação":"musculacao","Cardio":"cardio","Acessórios":"acessorios"};
-const PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#e9eef1"/><path d="M70 60v80M70 102l50-42M84 98l40 42" stroke="#b8c6ce" stroke-width="14" stroke-linecap="round" fill="none"/></svg>');
+const PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#F6F3ED"/><path d="M70 60v80M70 102l50-42M84 98l40 42" stroke="#E7E5E0" stroke-width="14" stroke-linecap="round" fill="none"/></svg>');
 const norm = s => (s||"").toLowerCase().normalize("NFD").replace(new RegExp("[" + String.fromCharCode(768) + "-" + String.fromCharCode(879) + "]","g"),"");
 const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const slug = s => norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
