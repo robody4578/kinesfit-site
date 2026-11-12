@@ -7,7 +7,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
   var WORD = '<span class="lw"><b>KINESFIT</b></span>';
   var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".14";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".19";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -135,24 +135,21 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
 
   /* ---------- layout ---------- */
   function navHTML(){
-    var h = '<ul><li><a class="top" href="/">Início</a></li>';
-    S.CATS.forEach(function(c){
-      var subs = S.SUBS[c] || [];
-      h += '<li><a class="top" href="/' + S.CAT_SLUG[c] + '.html">' + S.CAT_LABEL[c] + '</a>' +
-        (subs.length ? '<div class="sub">' + subs.map(function(s){ return '<a href="/' + S.CAT_SLUG[c] + '.html#' + S.slug(s) + '">' + s + '</a>'; }).join("") + '</div>' : '') + '</li>';
-    });
-    return h + '<li><a class="top" href="/#como-funciona">Como funciona</a></li><li><a class="top" href="/projeto-de-layout.html">Projeto de layout</a></li><li><a class="top" href="/#contato">Contato</a></li></ul>';
+    var h = '<ul><li><a class="top" href="/#equipamentos">Equipamentos</a><div class="sub">';
+    S.CATS.forEach(function(c){ h += '<a href="/' + S.CAT_SLUG[c] + '.html">' + S.CAT_LABEL[c] + '</a>'; });
+    return h + '</div></li><li><a class="top" href="/projeto-de-layout.html">Projeto de layout</a></li><li><a class="top" href="/#espacos">Para construtoras</a></li></ul>';
   }
-  function header(){
+  var HSEARCH = '<div class="hsearch"><div class="wrap"><form action="/" method="get" role="search" id="hsForm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input type="search" name="q" id="hq" placeholder="Buscar equipamento por nome, marca ou modelo…" aria-label="Buscar equipamentos" autocomplete="off"><button type="submit">Buscar</button></form><div class="hres" id="hres" hidden></div></div></div>';
+  function header(withSearch){
     return '<header><div class="wrap hbar"><a href="/" class="logo" aria-label="Kinesfit - início">' + LOGO + WORD + '</a>' +
       '<nav id="nav" aria-label="Menu principal">' + navHTML() + '</nav>' +
-      '<div class="hact"><button type="button" class="orc-btn" data-open aria-label="Abrir meu orçamento"><span class="lb">Meu orçamento</span><b data-count>0</b></button>' +
+      '<div class="hact"><button type="button" class="orc-btn" data-open aria-label="Solicitar proposta (abrir lista de equipamentos)"><span class="lb">Solicitar proposta</span><b data-count>0</b></button>' +
       '<button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span></button></div></div>' +
-      '<div class="hsearch"><div class="wrap"><form action="/" method="get" role="search" id="hsForm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input type="search" name="q" id="hq" placeholder="Buscar equipamento por nome, marca ou modelo…" aria-label="Buscar equipamentos" autocomplete="off"><button type="submit">Buscar</button></form><div class="hres" id="hres" hidden></div></div></div></header>';
+      (withSearch ? HSEARCH : '') + '</header>';
   }
   function footer(){
     return '<footer><div class="wrap"><div class="top"><a href="/" class="logo" aria-label="Kinesfit">' + LOGO_DARK + WORD_F + '</a>' +
-      '<ul><li><a href="/musculacao.html">Musculação</a></li><li><a href="/cardio.html">Cardio Máquinas</a></li><li><a href="/acessorios.html">Acessórios</a></li><li><a href="/#publico">Para quem</a></li><li><a href="/projeto-de-layout.html">Projeto de layout</a></li><li><a href="/#sobre">Sobre</a></li><li><a href="/#contato">Contato</a></li></ul></div>' +
+      '<ul><li><a href="/musculacao.html">Musculação</a></li><li><a href="/cardio.html">Cardio Máquinas</a></li><li><a href="/acessorios.html">Acessórios</a></li><li><a href="/projeto-de-layout.html">Projeto de layout</a></li><li><a href="/#proposta">Contato</a></li></ul></div>' +
       '<div class="bot"><span>© <span id="ano"></span> Kinesfit. Todos os direitos reservados. · <a href="mailto:' + S.CONFIG.email + '">' + S.CONFIG.email + '</a> · WhatsApp ' + S.CONFIG.whatsappExibido + '</span><span>Todo fornecimento é feito sob orçamento.</span></div></div></footer>' +
       '<a class="wa" data-wa href="' + WAURL + '" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg></a>';
   }
@@ -167,9 +164,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.14">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
-      header() + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.14"></script>\n<script src="/assets/app.js?v=' + HOJE + '.14"></script>\n</body>\n</html>\n';
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.19">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      header(o.search) + '\n' + o.body + '\n' + footer() +
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.19"></script>\n<script src="/assets/app.js?v=' + HOJE + '.19"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -206,49 +203,40 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<div class="acts"><a class="btn btn-primary" href="' + LAYWA + '" target="_blank" rel="noopener">' + WAI + 'Enviar pelo WhatsApp</a><a class="btn btn-dark" href="/projeto-de-layout.html#enviar-planta">' + MAILI + 'Enviar a planta pelo site</a></div></div>';
   }
 
-  var destaque = DATA.filter(function(p){ return p.destaque; }).slice(0,8);
   var tiles = S.CATS.map(function(c){
     var img = {"Musculação":"leg-press-45-voeil-vc2060","Cardio":"esteira-profissional-alfa-a-6-000i","Acessórios":"barra-olimpica-voeil-bo-1000"}[c];
     var p = DATA.filter(function(x){ return x.id===img; })[0] || DATA.filter(function(x){ return x.categoria===c; })[0];
     var n = DATA.filter(function(x){ return x.categoria===c; }).length;
-    return '<a class="tile" href="/' + S.CAT_SLUG[c] + '.html">' + S.imgTag(p, "", 'loading="lazy" alt="' + esc(S.CAT_LABEL[c] + " para academias") + '"').replace('alt=""','') + '<div><h3>' + S.CAT_LABEL[c] + '</h3><span>' + n + ' equipamentos</span><span class="go">Ver equipamentos →</span></div></a>';
+    return '<a class="kh-tile" href="/' + S.CAT_SLUG[c] + '.html"><div class="kh-tph">' + S.imgTag(p, S.CAT_LABEL[c] + " para academias", 'loading="lazy"') + '</div><h3>' + S.CAT_LABEL[c] + '</h3><span>' + n + ' equipamentos</span></a>';
   }).join("");
+  var DEST = DATA.filter(function(x){ return x.id==="estacao-cross-smith-multipower-v-8800"; })[0];
   var homeBody =
-    '<main id="inicio">\n<div class="hero"><div class="wrap"><div class="eyebrow">Equipamentos fitness profissionais · venda sob orçamento</div>' +
-    '<h1>Equipamentos de musculação e cardio para <em>condomínios e empresas</em></h1>' +
-    '<p>Escolha os equipamentos, monte a sua lista e receba uma proposta. Cada orçamento é feito sob medida para o seu projeto.</p>' +
-    heroLay() +
-    '<ol class="hero-steps"><li><b>1</b><span>Escolha no catálogo<small>toque em + Orçamento</small></span></li><li><b>2</b><span>Monte a lista<small>quantidades e modelos</small></span></li><li><b>3</b><span>Envie o pedido<small>por e-mail ou WhatsApp</small></span></li><li><b>4</b><span>Receba a proposta<small>personalizada, sem compromisso</small></span></li></ol>' +
-    '<div class="actions"><a class="btn btn-primary" href="#catalogo">Escolher equipamentos</a><a class="btn btn-line" href="/projeto-de-layout.html#enviar-planta">Enviar a planta da sala</a></div></div></div>\n' +
-    '<section class="how" id="como-funciona"><div class="wrap"><div class="sec-head"><div class="eyebrow">Como funciona</div><h2>Peça seu orçamento em 4 passos</h2><p>Não é preciso saber o modelo exato nem fechar nada agora: você monta a lista e a Kinesfit responde com uma proposta sob medida.</p></div>' +
-    '<div class="steps"><div class="step"><b class="n">1</b><h3>Escolha os equipamentos</h3><p>Navegue pelo catálogo e toque em <b>+ Orçamento</b> nos itens que interessam. Pode misturar musculação, cardio e acessórios.</p></div>' +
-    '<div class="step"><b class="n">2</b><h3>Monte a sua lista</h3><p>Abra <b>Meu orçamento</b> no topo da página, ajuste a quantidade de cada item e informe modelo, cor ou voltagem. Equipamento fora do catálogo? É só incluir à mão.</p></div>' +
-    '<div class="step"><b class="n">3</b><h3>Envie o pedido</h3><p>Preencha seus dados e envie por <b>e-mail</b> ou pelo <b>WhatsApp</b>, como preferir. A lista já vai pronta na mensagem.</p></div>' +
-    '<div class="step"><b class="n">4</b><h3>Receba a proposta</h3><p>A Kinesfit analisa o pedido e responde com uma proposta personalizada para o seu projeto. Sem compromisso.</p></div></div>' +
-    '<div class="actions-row"><a class="btn btn-primary" href="#catalogo">Escolher equipamentos</a><a class="btn btn-dark" data-wa href="' + WAURL + '" target="_blank" rel="noopener">Prefiro falar no WhatsApp</a></div></div></section>\n' +
-    '<section id="categorias"><div class="wrap"><div class="sec-head"><div class="eyebrow">Categorias</div><h2>O que você precisa para sua área de treino</h2></div><div class="tiles">' + tiles + '</div></div></section>\n' +
-    '<section id="destaques" style="padding-top:0"><div class="wrap"><div class="sec-head"><div class="eyebrow">Em destaque</div><h2>Equipamentos em destaque</h2><p>Consulte-nos para conhecer configurações, condições e disponibilidade de cada item.</p></div><div class="grid" id="gridDest">' + destaque.map(S.cardHTML).join("") + '</div></div></section>\n' +
-    '<section class="catalogo" id="catalogo"><div class="wrap"><div class="sec-head"><div class="eyebrow">Catálogo</div><h2>Todos os equipamentos</h2><p>Os preços mostrados são valores de referência (a partir de); o valor final é confirmado no orçamento. Toque em <b>+ Orçamento</b> nos itens de interesse, ajuste quantidades e modelos e envie o pedido.</p></div>' +
-    '<div class="filters"><div class="chips" id="chipsCat"></div><div class="chips sm" id="chipsSub"></div><div class="search"><input type="search" id="busca" placeholder="Buscar por nome, marca ou modelo…" aria-label="Buscar equipamentos"><span class="count" id="contagem">' + DATA.length + ' equipamentos</span></div></div>' +
-    '<div class="grid" id="grid">' + DATA.map(S.cardHTML).join("") + '</div></div></section>\n' +
-    '<section id="publico"><div class="wrap"><div class="sec-head"><div class="eyebrow">Para quem</div><h2>Soluções para o seu espaço</h2></div><div class="pub">' +
-    '<div><h3>Condomínios</h3><p>Equipamentos para academias de condomínio residencial e comercial, com foco em segurança e uso contínuo.</p></div>' +
-    '<div><h3>Espaços corporativos</h3><p>Estruturas para academias e salas de ginástica em empresas, promovendo bem-estar para colaboradores.</p></div>' +
-    '<div><h3>Construtoras</h3><p>Fornecimento para empreendimentos e áreas de lazer, com orçamento sob medida para cada projeto.</p></div></div></div></section>\n' +
-    '<section id="layout" style="padding-top:0"><div class="wrap">' + layoutHTML() + '</div></section>\n' +
-    '<section class="sobre" id="sobre"><div class="wrap in"><div><div class="eyebrow">Sobre a Kinesfit</div><h2>Equipamentos fitness com atendimento B2B</h2>' +
-    '<p>A Kinesfit é uma marca de equipamentos fitness voltada ao mercado corporativo. Trabalhamos com musculação, cardio e acessórios das principais linhas do mercado, sempre com atendimento direto e proposta individual para cada projeto.</p>' +
-    '<p>Informe o que você precisa e retornamos com um orçamento personalizado.</p></div>' +
-    '<ul><li>Venda 100% sob orçamento<small>Proposta personalizada para cada cliente</small></li><li>Musculação, cardio e acessórios<small>Linhas completas para montar a sua área de treino</small></li><li>Atendimento direto<small>Fale conosco por e-mail ou WhatsApp</small></li></ul></div></section>\n' +
-    '<section class="seo-home" id="duvidas"><div class="wrap"><div class="sec-head"><div class="eyebrow">Dúvidas frequentes</div><h2>Como comprar equipamentos fitness com a Kinesfit</h2></div><div class="prose">' + faqHTML(FAQ) + '</div></div></section>\n' +
-    '<section class="contato" id="contato"><div class="wrap in"><div class="info"><div class="eyebrow">Contato</div><h2 style="font-size:clamp(30px,4.2vw,46px);color:var(--grafite);margin-top:6px">Solicite seu orçamento</h2>' +
-    '<p>Monte a lista com os equipamentos, quantidades e modelos e envie por e-mail ou WhatsApp. Respondemos com uma proposta.</p><p class="lay-note">Tem a planta da sala? Envie junto que montamos o layout. <a class="lk" href="/projeto-de-layout.html">Saiba mais</a></p>' +
-    '<a class="lnk" data-wa href="' + WAURL + '" target="_blank" rel="noopener">' + WAI + '<span>WhatsApp: ' + S.CONFIG.whatsappExibido + '</span></a>' +
-    '<a class="lnk" href="mailto:' + S.CONFIG.email + '">' + MAILI + '<span>' + S.CONFIG.email + '</span></a></div>' +
-    '<div id="orcForm"><noscript><p>Para montar o orçamento, ative o JavaScript ou envie um e-mail para <a href="mailto:' + S.CONFIG.email + '">' + S.CONFIG.email + '</a>.</p></noscript></div></div></section>\n</main>';
-  page({path:"/", title:"Equipamentos de Musculação e Cardio para Condomínios e Empresas | Kinesfit",
-    desc:"Esteiras, bikes, estações de musculação, bancos, gaiolas e acessórios para academias de condomínios e empresas. Monte sua lista e peça orçamento.",
-    body:homeBody, ld:[ORG, SITELD, itemList(DATA), faqLD(FAQ)]});
+    '<main id="inicio">\n' +
+    '<section class="kh kh-ivory kh-hero"><div class="kh-in kh-cols"><div class="kh-col"><div class="kh-label">Salas fitness para empreendimentos</div><h1>Movimento que valoriza o seu empreendimento.</h1>' +
+    '<p>Projeto de layout, equipamentos e entrega da sala fitness para condomínios, empresas e construtoras.</p>' +
+    '<div class="kh-acts"><a class="kh-btn" href="#proposta">Solicitar proposta</a><a class="kh-link" href="#equipamentos">Ver equipamentos</a></div></div>' +
+    '<div class="kh-col"><div class="kh-ph kh-photo" style="height:520px"><img src="/assets/home/abertura-sala.jpg" alt="Sala fitness com estações, bikes, elíptico e esteira, luz natural e piso de madeira" width="1448" height="1086"></div></div></div></section>\n' +
+    '<section class="kh kh-white" id="equipamentos"><div class="kh-in"><div class="kh-bar"></div><h2>Equipamentos</h2><div class="kh-tiles">' + tiles + '</div></div></section>\n' +
+    '<section class="kh kh-dark" id="destaque"><div class="kh-in kh-cols"><div class="kh-col"><div class="kh-dph"><img src="/assets/home/destaque-v8800.jpg" alt="' + esc(DEST.nome) + '" loading="lazy" width="755" height="1005"></div></div>' +
+    '<div class="kh-col"><div class="kh-label">Equipamento em destaque</div><h2>' + esc(DEST.nome) + '</h2>' +
+    '<p>Duas colunas de peso integradas e smith machine: vários exercícios em uma única estação.</p>' +
+    '<ul class="kh-data"><li>2 colunas de peso integradas</li><li>Smith machine integrada</li></ul>' +
+    '<div class="kh-acts"><button type="button" class="kh-btn kh-btn-light b-orc" data-add="' + esc(DEST.id) + '" data-lbl="Incluir na proposta">Incluir na proposta</button><a class="kh-link" href="' + S.pUrl(DEST) + '">Ver página do produto</a></div></div></div></section>\n' +
+    '<section class="kh kh-ivory" id="layout"><div class="kh-in kh-cols"><div class="kh-col"><div class="kh-bar"></div><h2>Projeto de layout da sala fitness</h2>' +
+    '<p>Envie a planta do espaço. Devolvemos a distribuição dos equipamentos, sem compromisso.</p>' +
+    '<div class="kh-acts"><a class="kh-btn kh-btn-line" href="/projeto-de-layout.html">Enviar a planta</a></div></div>' +
+    '<div class="kh-col"><a class="kh-plan" href="/projeto-de-layout.html"><img src="/assets/home/planta-exemplo.jpg" alt="Planta baixa de uma academia de condomínio com a distribuição dos equipamentos" width="1800" height="815" loading="lazy"></a></div></div></section>\n' +
+    '<section class="kh kh-white" id="espacos"><div class="kh-in"><div class="kh-bar"></div><h2>O equipamento certo para cada espaço</h2><div class="kh-three">' +
+    '<div><h3>Construtoras e incorporadoras</h3><p>A sala fitness definida junto com o projeto e entregue no prazo da obra.</p></div>' +
+    '<div><h3>Condomínios</h3><p>Renovação ou ampliação da academia com uma seleção adequada à área disponível.</p></div>' +
+    '<div><h3>Empresas</h3><p>Espaços corporativos de treino dimensionados para o uso da equipe.</p></div></div></div></section>\n' +
+    '<section class="kh kh-ivory" id="proposta"><div class="kh-in kh-cols"><div class="kh-col"><div class="kh-bar"></div><h2>Solicite uma proposta</h2>' +
+    '<p>Conte sobre o empreendimento e o espaço. Respondemos com uma proposta sob medida.</p>' +
+    '<p class="kh-contact"><a href="mailto:' + S.CONFIG.email + '">' + S.CONFIG.email + '</a><br><a data-wa href="' + WAURL + '" target="_blank" rel="noopener">WhatsApp ' + S.CONFIG.whatsappExibido + '</a></p></div>' +
+    '<div class="kh-col"><div id="orcForm" data-simple><noscript><p>Para solicitar a proposta, ative o JavaScript ou envie um e-mail para <a href="mailto:' + S.CONFIG.email + '">' + S.CONFIG.email + '</a>.</p></noscript></div></div></div></section>\n</main>';
+  page({path:"/", title:"Salas Fitness para Condomínios, Empresas e Construtoras | Kinesfit",
+    desc:"Projeto de layout, equipamentos e entrega da sala fitness para condomínios, empresas e construtoras. Solicite uma proposta sob medida.",
+    body:homeBody, ld:[ORG, SITELD]});
 
   /* ---------- categorias ---------- */
   var CATI = {
@@ -270,8 +258,8 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       return l.length ? '<div class="subsec" id="' + S.slug(s) + '"><h2>' + s + '</h2><div class="grid">' + l.map(S.cardHTML).join("") + '</div></div>' : "";
     }).join("") : '<div class="subsec"><div class="grid">' + list.map(S.cardHTML).join("") + '</div></div>';
     var body = '<main><div class="phead"><div class="wrap">' + crumb(cr) + '<div class="eyebrow">' + S.CAT_LABEL[c] + '</div><h1>' + esc(info.h1) + '</h1><p>' + esc(info.intro) + '</p>' + heroLay() + '</div></div>' +
-      '<div class="cat-body"><div class="wrap">' + secs + '<div style="margin-top:40px">' + layoutHTML() + '</div><div class="prose" style="margin-top:40px">' + info.texto.map(function(t){ return '<p>' + esc(t) + '</p>'; }).join("") + '<p><a class="lk" href="/#contato">Solicitar orçamento</a> · <a class="lk" href="/">Ver todas as categorias</a></p></div></div></div></main>';
-    page({path:"/" + S.CAT_SLUG[c] + ".html", title:info.title, desc:info.desc, body:body, ld:[crumbLD(cr), itemList(list)]});
+      '<div class="cat-body"><div class="wrap">' + secs + '<div style="margin-top:40px">' + layoutHTML() + '</div><div class="prose" style="margin-top:40px">' + info.texto.map(function(t){ return '<p>' + esc(t) + '</p>'; }).join("") + '<p><a class="lk" href="/#proposta">Solicitar orçamento</a> · <a class="lk" href="/">Ver todas as categorias</a></p></div></div></div></main>';
+    page({path:"/" + S.CAT_SLUG[c] + ".html", search:true, title:info.title, desc:info.desc, body:body, ld:[crumbLD(cr), itemList(list)]});
   });
 
   /* ---------- produtos ---------- */
