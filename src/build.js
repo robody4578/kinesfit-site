@@ -7,7 +7,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
   var WORD = '<span class="lw"><b>KINESFIT</b></span>';
   var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".27";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".28";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -38,7 +38,6 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     "esteira-profissional-voeil":[["Motor","3 HP real"],["Velocidade","Até 18 km/h"],["Área de corrida","135 x 50 cm"],["Peso máximo do usuário","180 kg"],["Programas","10"],["Voltagem","220 V"]],
     "bike-de-spinning-profissional":[["Peso máximo do usuário","180 kg"],["Disco de inércia","20 kg"],["Monitor","LCD"]],
     "bicicleta-spinning-bc-826":[["Disco de inércia","20 kg"],["Peso máximo do usuário","130 kg"],["Transmissão","Por corrente, com trava de segurança"],["Selim","Ajuste vertical e horizontal"]],
-    "bicicleta-ergometrica-bc-802":[["Resistência","Magnética, 15 níveis"],["Disco de inércia","10 kg"],["Peso máximo do usuário","150 kg"]],
     "bicicleta-polibike-4600":[["Dimensões","118 x 60 x 137 cm"],["Visor","LCD com luz de fundo"]],
     "eliptico-polielliptical-4600":[["Dimensões","170 x 63 x 164 cm"],["Visor","LCD com luz de fundo"]],
     "eliptico-proteus-promaster-e12":[["Dimensões montado","185 x 78,5 x 161 cm"],["Peso máximo do usuário","180 kg"]],
@@ -88,7 +87,6 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     "jdm-5200":[["Linha","Profissional"],["Dimensões (C x L x A)","186 x 88 x 139 cm"],["Peso","126 kg"]],
     "pec-7097":[["Dimensões","139 x 45 x 117 cm"],["Peso","55 kg"]],
     "pec-7597":[["Dimensões em uso","70 x 147 x 133 cm"],["Peso","59 kg"]],
-    "magnetic-bike-bf-5150":[["Resistência","Magnética"],["Linha","Semi profissional"]],
     "esteira-profissional-vsi-300":[["Linha","Profissional"]],
     "bola-queens":[["Peso","1,8 kg"]],
     "caneleira-voeil-cn-1000":[["Material","Couro natural, interior almofadado em algodão"],["Fecho","Fivela"],["Uso","Máquinas com sistema de polias"]],
@@ -176,9 +174,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.27">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.28">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header(o.search) + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.27"></script>\n<script src="/assets/app.js?v=' + HOJE + '.27"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.28"></script>\n<script src="/assets/app.js?v=' + HOJE + '.28"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -358,6 +356,11 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   out["assets/favicon.svg"] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none"><rect width="96" height="96" rx="14" fill="#25282A"/><rect x="22" y="12" width="9" height="72" rx="1.5" fill="#F6F3ED"/><path d="M70 14 C54 20 38 34 34 46 C32 52 38 54 44 57 C56 63 66 72 74 82" stroke="#A78A63" stroke-width="8"/></svg>' + "\n";
   out["assets/catalogo.js"] = "const equipamentos = " + JSON.stringify(DATA) + ";\n" + SH;
   out["enviar.php"] = PHP;
+  /* produtos retirados do catálogo: a página antiga vira um aviso que leva à categoria */
+  [["magnetic-bike-bf-5150","Magnetic Bike BF 5150"],["bicicleta-ergometrica-bc-802","Bicicleta Ergométrica BC 802"]].forEach(function(r){
+    var u = SITE + "/cardio.html";
+    out["equipamentos/" + r[0] + ".html"] = '<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<title>Equipamento retirado do catálogo | Kinesfit</title>\n<meta name="robots" content="noindex, follow">\n<link rel="canonical" href="' + u + '">\n<meta http-equiv="refresh" content="0; url=' + u + '">\n<script>location.replace("' + u + '");</script>\n</head>\n<body><p>Este equipamento não está mais no catálogo. <a href="' + u + '">Ver equipamentos de cardio</a>.</p></body>\n</html>\n';
+  });
   /* endereços antigos (vindos da Body Center) redirecionam para o novo */
   DATA.filter(function(p){ return p.idAntigo; }).forEach(function(p){
     var u = SITE + S.pUrl(p);
