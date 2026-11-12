@@ -7,7 +7,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
   var WORD = '<span class="lw"><b>KINESFIT</b></span>';
   var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".13";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".14";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -167,9 +167,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.13">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.14">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header() + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.13"></script>\n<script src="/assets/app.js?v=' + HOJE + '.13"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.14"></script>\n<script src="/assets/app.js?v=' + HOJE + '.14"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -203,7 +203,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   function layoutHTML(){
     return '<div class="layout-cta"><div><div class="eyebrow">Projeto de layout</div><h2>Envie a planta da sala e a gente monta o layout</h2>' +
       '<p>Mande uma imagem da planta ou as medidas do espaço e a Kinesfit sugere a distribuição dos equipamentos, a partir da nossa biblioteca de layouts para condomínios, empresas e construtoras. <a class="lk" href="/projeto-de-layout.html">Ver exemplos de layout</a></p></div>' +
-      '<div class="acts"><a class="btn btn-vinho" href="' + LAYWA + '" target="_blank" rel="noopener">' + WAI + 'Enviar pelo WhatsApp</a><a class="btn btn-dark" href="/projeto-de-layout.html#enviar-planta">' + MAILI + 'Enviar a planta pelo site</a></div></div>';
+      '<div class="acts"><a class="btn btn-primary" href="' + LAYWA + '" target="_blank" rel="noopener">' + WAI + 'Enviar pelo WhatsApp</a><a class="btn btn-dark" href="/projeto-de-layout.html#enviar-planta">' + MAILI + 'Enviar a planta pelo site</a></div></div>';
   }
 
   var destaque = DATA.filter(function(p){ return p.destaque; }).slice(0,8);
@@ -219,13 +219,13 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     '<p>Escolha os equipamentos, monte a sua lista e receba uma proposta. Cada orçamento é feito sob medida para o seu projeto.</p>' +
     heroLay() +
     '<ol class="hero-steps"><li><b>1</b><span>Escolha no catálogo<small>toque em + Orçamento</small></span></li><li><b>2</b><span>Monte a lista<small>quantidades e modelos</small></span></li><li><b>3</b><span>Envie o pedido<small>por e-mail ou WhatsApp</small></span></li><li><b>4</b><span>Receba a proposta<small>personalizada, sem compromisso</small></span></li></ol>' +
-    '<div class="actions"><a class="btn btn-vinho" href="#catalogo">Escolher equipamentos</a><a class="btn btn-line" href="/projeto-de-layout.html#enviar-planta">Enviar a planta da sala</a></div></div></div>\n' +
+    '<div class="actions"><a class="btn btn-primary" href="#catalogo">Escolher equipamentos</a><a class="btn btn-line" href="/projeto-de-layout.html#enviar-planta">Enviar a planta da sala</a></div></div></div>\n' +
     '<section class="how" id="como-funciona"><div class="wrap"><div class="sec-head"><div class="eyebrow">Como funciona</div><h2>Peça seu orçamento em 4 passos</h2><p>Não é preciso saber o modelo exato nem fechar nada agora: você monta a lista e a Kinesfit responde com uma proposta sob medida.</p></div>' +
     '<div class="steps"><div class="step"><b class="n">1</b><h3>Escolha os equipamentos</h3><p>Navegue pelo catálogo e toque em <b>+ Orçamento</b> nos itens que interessam. Pode misturar musculação, cardio e acessórios.</p></div>' +
     '<div class="step"><b class="n">2</b><h3>Monte a sua lista</h3><p>Abra <b>Meu orçamento</b> no topo da página, ajuste a quantidade de cada item e informe modelo, cor ou voltagem. Equipamento fora do catálogo? É só incluir à mão.</p></div>' +
     '<div class="step"><b class="n">3</b><h3>Envie o pedido</h3><p>Preencha seus dados e envie por <b>e-mail</b> ou pelo <b>WhatsApp</b>, como preferir. A lista já vai pronta na mensagem.</p></div>' +
     '<div class="step"><b class="n">4</b><h3>Receba a proposta</h3><p>A Kinesfit analisa o pedido e responde com uma proposta personalizada para o seu projeto. Sem compromisso.</p></div></div>' +
-    '<div class="actions-row"><a class="btn btn-vinho" href="#catalogo">Escolher equipamentos</a><a class="btn btn-dark" data-wa href="' + WAURL + '" target="_blank" rel="noopener">Prefiro falar no WhatsApp</a></div></div></section>\n' +
+    '<div class="actions-row"><a class="btn btn-primary" href="#catalogo">Escolher equipamentos</a><a class="btn btn-dark" data-wa href="' + WAURL + '" target="_blank" rel="noopener">Prefiro falar no WhatsApp</a></div></div></section>\n' +
     '<section id="categorias"><div class="wrap"><div class="sec-head"><div class="eyebrow">Categorias</div><h2>O que você precisa para sua área de treino</h2></div><div class="tiles">' + tiles + '</div></div></section>\n' +
     '<section id="destaques" style="padding-top:0"><div class="wrap"><div class="sec-head"><div class="eyebrow">Em destaque</div><h2>Equipamentos em destaque</h2><p>Consulte-nos para conhecer configurações, condições e disponibilidade de cada item.</p></div><div class="grid" id="gridDest">' + destaque.map(S.cardHTML).join("") + '</div></div></section>\n' +
     '<section class="catalogo" id="catalogo"><div class="wrap"><div class="sec-head"><div class="eyebrow">Catálogo</div><h2>Todos os equipamentos</h2><p>Os preços mostrados são valores de referência (a partir de); o valor final é confirmado no orçamento. Toque em <b>+ Orçamento</b> nos itens de interesse, ajuste quantidades e modelos e envie o pedido.</p></div>' +
@@ -241,7 +241,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     '<p>Informe o que você precisa e retornamos com um orçamento personalizado.</p></div>' +
     '<ul><li>Venda 100% sob orçamento<small>Proposta personalizada para cada cliente</small></li><li>Musculação, cardio e acessórios<small>Linhas completas para montar a sua área de treino</small></li><li>Atendimento direto<small>Fale conosco por e-mail ou WhatsApp</small></li></ul></div></section>\n' +
     '<section class="seo-home" id="duvidas"><div class="wrap"><div class="sec-head"><div class="eyebrow">Dúvidas frequentes</div><h2>Como comprar equipamentos fitness com a Kinesfit</h2></div><div class="prose">' + faqHTML(FAQ) + '</div></div></section>\n' +
-    '<section class="contato" id="contato"><div class="wrap in"><div class="info"><div class="eyebrow">Contato</div><h2 style="font-size:clamp(30px,4.2vw,46px);color:var(--petroleo);margin-top:6px">Solicite seu orçamento</h2>' +
+    '<section class="contato" id="contato"><div class="wrap in"><div class="info"><div class="eyebrow">Contato</div><h2 style="font-size:clamp(30px,4.2vw,46px);color:var(--grafite);margin-top:6px">Solicite seu orçamento</h2>' +
     '<p>Monte a lista com os equipamentos, quantidades e modelos e envie por e-mail ou WhatsApp. Respondemos com uma proposta.</p><p class="lay-note">Tem a planta da sala? Envie junto que montamos o layout. <a class="lk" href="/projeto-de-layout.html">Saiba mais</a></p>' +
     '<a class="lnk" data-wa href="' + WAURL + '" target="_blank" rel="noopener">' + WAI + '<span>WhatsApp: ' + S.CONFIG.whatsappExibido + '</span></a>' +
     '<a class="lnk" href="mailto:' + S.CONFIG.email + '">' + MAILI + '<span>' + S.CONFIG.email + '</span></a></div>' +
@@ -282,7 +282,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     cr.push([p.nome, path]);
     var para2 = PARA2[cat][idx % 2];
     var rows = specs(p).map(function(r){ return '<tr><th scope="row">' + esc(r[0]) + '</th><td>' + esc(r[1]) + '</td></tr>'; }).join("");
-    var brand = p.marca ? '<span class="brand" style="color:var(--muted)">' + esc(p.marca) + (p.modelo ? " · " + esc(p.modelo) : "") + '</span>' : "";
+    var brand = p.marca ? '<span class="brand" style="color:var(--texto2)">' + esc(p.marca) + (p.modelo ? " · " + esc(p.modelo) : "") + '</span>' : "";
     var lead = p.nome + " é " + t[0] + " " + t[1] + (p.marca ? " da marca " + p.marca : "") + ", indicad" + (t[0]==="uma" ? "a" : "o") + " para " + USO[p.sub || "Acessórios"] + ".";
     var faq = [
       ["Como pedir orçamento de " + p.nome + "?","Toque em + Adicionar à lista de orçamento, informe a quantidade e o modelo desejado e envie o pedido por e-mail ou WhatsApp. A Kinesfit responde com uma proposta personalizada."],
@@ -294,7 +294,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<div class="pic">' + S.imgTag(p, S.altText(p), 'width="430" height="430"') + '</div>' +
       '<div><span class="tag">' + esc(p.sub) + '</span><h1>' + esc(p.nome) + '</h1>' + brand + '<div class="pg-preco">' + S.precoHTML(p) + '</div>' +
       '<p class="lead">' + esc(lead) + '</p><p>' + esc(para2) + '</p>' +
-      '<div class="cta"><button type="button" class="b-orc" data-add="' + esc(p.id) + '" data-lbl="+ Adicionar à lista de orçamento">+ Adicionar à lista de orçamento</button><a class="btn btn-line" style="border-color:var(--petroleo);color:var(--petroleo)" href="' + WAURL + '" data-wa target="_blank" rel="noopener">Falar no WhatsApp</a></div>' +
+      '<div class="cta"><button type="button" class="b-orc" data-add="' + esc(p.id) + '" data-lbl="+ Adicionar à lista de orçamento">+ Adicionar à lista de orçamento</button><a class="btn btn-line" style="border-color:var(--grafite);color:var(--grafite)" href="' + WAURL + '" data-wa target="_blank" rel="noopener">Falar no WhatsApp</a></div>' +
       '<div class="note">' + (p.preco ? 'Preço de referência por unidade. O valor final é confirmado no orçamento, conforme quantidade e condições do projeto.' : 'Valor sob orçamento. Informe quantidade e modelo na lista e enviamos a proposta.') + '</div></div></div></div></div>' +
       '<div class="pgx"><div class="wrap"><div class="prose"><h2>Ficha do equipamento</h2><table class="spec"><tbody>' + rows + '</tbody></table>' +
       '<h2>Dúvidas sobre ' + esc(p.nome) + '</h2>' + faqHTML(faq) + '</div></div></div>' +
@@ -320,7 +320,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     }).join("");
     var body = '<main><div class="phead"><div class="wrap">' + crumb(cr) + '<div class="eyebrow">Serviço</div><h1>Projeto de layout para a sua academia</h1>' +
       '<p>Envie a planta ou as medidas da sala e a Kinesfit monta a distribuição dos equipamentos em escala, com áreas de circulação e a lista completa para o orçamento.</p>' +
-      '<div class="lay-hero-acts"><a class="btn btn-vinho" href="#enviar-planta">' + MAILI + 'Enviar a planta</a><a class="btn btn-line" href="' + LAYWA + '" target="_blank" rel="noopener">' + WAI + 'Enviar pelo WhatsApp</a></div>' +
+      '<div class="lay-hero-acts"><a class="btn btn-primary" href="#enviar-planta">' + MAILI + 'Enviar a planta</a><a class="btn btn-line" href="' + LAYWA + '" target="_blank" rel="noopener">' + WAI + 'Enviar pelo WhatsApp</a></div>' +
       '<p class="lay-hero-mail">Se preferir, mande as medidas da sala por e-mail para <a href="' + esc(LAYMAIL) + '">' + S.CONFIG.email + '</a>.</p></div></div>' +
       '<section class="how"><div class="wrap"><div class="sec-head"><div class="eyebrow">Como funciona</div><h2>Da planta ao orçamento em 3 passos</h2></div>' +
       '<div class="steps lay-steps"><div class="step"><b class="n">1</b><h3>Envie a planta</h3><p>Envie a planta como imagem (foto ou print) pelo formulário abaixo, ou só as medidas da sala por <b>WhatsApp</b> ou <b>e-mail</b>. Conte o tipo de espaço e quantas pessoas vão usar.</p></div>' +
@@ -335,7 +335,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<div class="fg"><label for="pArq">Imagens da planta * <small>(até 3, JPG, PNG ou WEBP)</small></label><input id="pArq" name="planta[]" type="file" accept="image/jpeg,image/png,image/webp" multiple required><ul class="pl-files" id="plFiles"></ul></div>' +
       '<div class="fg"><label for="pMsg">Mensagem</label><textarea id="pMsg" name="msg" maxlength="2000" placeholder="Quantas pessoas vão usar, equipamentos que deseja, pé-direito, prazo…"></textarea></div>' +
       '<div class="hp" aria-hidden="true"><label for="pSite">Não preencha</label><input id="pSite" name="website" tabindex="-1" autocomplete="off"></div>' +
-      '<div class="send"><button type="submit" class="btn btn-vinho">' + MAILI + 'Enviar planta</button><a class="btn btn-wa" href="' + LAYWA + '" target="_blank" rel="noopener">' + WAI + 'Prefiro pelo WhatsApp</a></div>' +
+      '<div class="send"><button type="submit" class="btn btn-primary">' + MAILI + 'Enviar planta</button><a class="btn btn-wa" href="' + LAYWA + '" target="_blank" rel="noopener">' + WAI + 'Prefiro pelo WhatsApp</a></div>' +
       '<div id="plMsg" class="orc-msg" role="status" aria-live="polite"></div>' +
       '<p class="hint">As imagens chegam por e-mail na Kinesfit e não ficam publicadas no site.</p></form></div></section>' +
       '</main>';
