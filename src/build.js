@@ -7,7 +7,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
   var WORD = '<span class="lw"><b>KINESFIT</b></span>';
   var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".41";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".42";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -186,9 +186,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.41">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.42">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header(o.search) + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.41"></script>\n<script src="/assets/app.js?v=' + HOJE + '.41"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.42"></script>\n<script src="/assets/app.js?v=' + HOJE + '.42"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -363,7 +363,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     var body = '<main><div class="phead"><div class="wrap">' + crumb(cr) + '<div class="eyebrow">Institucional</div><h1>Quem somos</h1>' +
       '<p>A Kinesfit fornece equipamentos de musculação, cardio e acessórios para academias de condomínios, espaços corporativos e, em especial, para construtoras e incorporadoras.</p></div></div>' +
       '<section><div class="wrap"><div class="sec-head"><div class="eyebrow">O que fazemos</div><h2>A sala fitness certa para cada projeto</h2>' +
-      '<p>Reunimos em um só lugar o projeto de layout, a seleção dos equipamentos e a proposta de fornecimento. Cada pedido é atendido sob orçamento, com a quantidade e o modelo que o espaço pede.</p></div></div></section>' +
+      '<p>Reunimos em um só lugar o projeto de layout, a seleção dos equipamentos, o fornecimento e a instalação, com técnicos em todas as capitais e 3 meses de manutenção inclusa após a entrega. Cada pedido é atendido sob orçamento, com a quantidade e o modelo que o espaço pede.</p></div></div></section>' +
       '<section class="how"><div class="wrap"><div class="sec-head"><div class="eyebrow">Nossos objetivos</div><h2>O que buscamos em cada projeto</h2></div>' +
       cards4([
         ["Fornecer para construtoras","Ser o parceiro de fornecimento da sala fitness de construtoras e incorporadoras, do projeto à entrega do empreendimento."],
@@ -381,7 +381,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   (function(){
     var cr = [["Início","/"],["Para construtoras","/construtoras.html"]];
     var body = '<main><div class="phead"><div class="wrap">' + crumb(cr) + '<div class="eyebrow">Construtoras e incorporadoras</div><h1>Salas fitness para empreendimentos residenciais</h1>' +
-      '<p>Do projeto de layout à entrega dos equipamentos, a Kinesfit apoia a construtora para que a academia entregue seja a mesma que foi especificada.</p>' +
+      '<p>Do projeto de layout à entrega dos equipamentos, a Kinesfit apoia a construtora, com instalação dentro da obra e 3 meses de manutenção inclusa, para que a academia entregue seja a mesma que foi especificada.</p>' +
       '<div class="lay-hero-acts"><a class="btn btn-primary" href="#proposta">Solicitar proposta</a><a class="btn btn-line" href="' + WACONS + '" target="_blank" rel="noopener">' + WAI + 'Falar pelo WhatsApp</a></div></div></div>' +
       '<section><div class="wrap"><div class="sec-head"><div class="eyebrow">O desafio</div><h2>Uma sala fitness mal planejada vira problema na entrega</h2>' +
       '<p>São riscos que o departamento de compras e a engenharia já conhecem e que o planejamento antecipado evita.</p></div>' +
@@ -391,25 +391,25 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
         ["Equipamento inadequado ao uso","Modelos que não resistem ao uso frequente de um condomínio ou que não combinam com o perfil dos moradores."],
         ["Prazo fora do cronograma","Entrega do equipamento que não acompanha as etapas finais da obra."]
       ]) + '</div></section>' +
-      '<section class="how"><div class="wrap"><div class="sec-head"><div class="eyebrow">Como trabalhamos</div><h2>Do briefing à entrega, um único parceiro</h2></div>' +
+      '<section class="how"><div class="wrap"><div class="sec-head"><div class="eyebrow">Como trabalhamos</div><h2>Do briefing ao pós-entrega, um único parceiro</h2></div>' +
       cards4([
         ["Briefing do empreendimento","Você informa o tipo de empreendimento, o número de unidades e a área reservada para a sala fitness."],
-        ["Projeto de layout","Montamos a distribuição dos equipamentos em escala, a partir da planta que você enviar, sem compromisso."],
-        ["Especificação e proposta","Entregamos a lista com marca, modelo e quantidade de cada equipamento, para o memorial e para o material de vendas."],
-        ["Fornecimento alinhado à obra","Combinamos o prazo de entrega de acordo com o cronograma do empreendimento."]
+        ["Layout e especificação","Montamos a distribuição dos equipamentos em escala e entregamos a lista com marca, modelo e quantidade, para o memorial e para o material de vendas."],
+        ["Fornecimento e instalação na obra","Entregamos e instalamos os equipamentos dentro da obra, de acordo com o cronograma do empreendimento."],
+        ["Manutenção após a entrega","Depois da entrega das chaves, 3 meses de manutenção inclusa, para a sala fitness começar a ser usada sem problemas."]
       ]) + '</div></section>' +
       '<section><div class="wrap"><div class="sec-head"><div class="eyebrow">Por que a Kinesfit</div><h2>O que a construtora encontra aqui</h2></div>' +
       cards4([
-        ["Projeto de layout incluso no atendimento","Envie a planta e receba a sugestão de distribuição dos equipamentos, sem custo."],
-        ["Catálogo completo","Musculação, cardio e acessórios no mesmo fornecedor, na mesma proposta."],
-        ["Marcas profissionais","Equipamentos de marcas como Voeil e Proteus, pensados para uso intenso."],
-        ["Um interlocutor","Um único contato para layout, especificação e proposta, do lançamento à entrega."]
+        ["Projeto de layout sem compromisso","Envie a planta e receba a sugestão de distribuição dos equipamentos."],
+        ["Instalação dentro da obra","Os equipamentos chegam e são instalados no ritmo do cronograma do empreendimento."],
+        ["Técnicos em todas as capitais","Atendimento para instalação e manutenção em todas as capitais do país."],
+        ["3 meses de manutenção inclusa","Acompanhamento após a entrega, sem custo adicional na proposta."]
       ]) + '</div></section>' +
       '<section class="how" id="proposta"><div class="wrap"><div class="sec-head"><div class="eyebrow">Proposta</div><h2>Conte sobre o empreendimento</h2>' +
       '<p>Informe o nome da construtora, o empreendimento, a cidade e a área da sala fitness. Respondemos com uma proposta sob medida.</p></div>' +
       '<div id="orcForm" data-simple style="max-width:760px"><noscript><p>Para solicitar a proposta, ative o JavaScript ou envie um e-mail para <a href="mailto:' + S.CONFIG.email + '">' + S.CONFIG.email + '</a>.</p></noscript></div></div></section></main>';
     page({path:"/construtoras.html", title:"Equipamentos de Academia para Construtoras e Incorporadoras | Kinesfit",
-      desc:"Salas fitness para empreendimentos residenciais: projeto de layout, especificação e fornecimento de equipamentos de musculação e cardio para construtoras e incorporadoras.",
+      desc:"Salas fitness para empreendimentos residenciais: projeto de layout, instalação dentro da obra, 3 meses de manutenção inclusa e técnicos em todas as capitais.",
       body:body, ld:[crumbLD(cr)]});
   })();
 
