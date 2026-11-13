@@ -7,7 +7,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
   var WORD = '<span class="lw"><b>KINESFIT</b></span>';
   var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".31";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".32";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -28,6 +28,11 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     "Acessórios":["Acessórios ajudam a ampliar as possibilidades de treino sem ocupar muito espaço. Você pode somar vários itens na mesma lista e pedir tudo em um único orçamento.","Dá para combinar este item com outros acessórios e equipamentos na mesma solicitação. Informe quantidades e modelos na lista de orçamento."]
   };
   var ESPEC = {
+    "anilhas-olimpicas-e-padrao":[["Tipos", "Olímpicas e padrão"], ["Pesos", "Vários, sob consulta"]],
+    "kettlebells-de-ferro":[["Material", "Ferro"], ["Pesos", "Vários, sob consulta"]],
+    "pesos-de-pulso-e-tornozelo-couro-nautico":[["Revestimento", "Couro náutico"], ["Pesos", "Vários, sob consulta"]],
+    "banco-ajustavel":[["Tipo", "Banco ajustável"]],
+    "bicicleta-de-spinning":[["Uso", "Ciclismo indoor e aulas coletivas"]],
     "bicicleta-spinning-voeil-a-1000":[["Disco de inércia","18 kg"],["Sistema de transmissão","Correia"],["Rolamentos","Duplo, com blindagem"],["Pedais","Diferenciados, com encaixe duplo, clip e firma-pés"],["Selim","Anatômico"],["Guidão","Revestimento em resina de PVC, com ajuste rápido de altura"],["Assento","Ajuste rápido de profundidade e altura"],["Freio","Regulagem no sistema superior e sistema de rápida frenagem integrado"],["Perfil do tubo","Oblongo, com 3 mm de parede"],["Estrutura","Aço carbono com pintura eletrostática preta"],["Proteções","Carenagens no disco de inércia, nos pés de apoio e na correia"],["Segurança","Reforço no pé de vela"],["Regulagens","Cromadas"],["Locomoção","Rodinhas"],["Niveladores","Nos pés"],["Dimensões (C x L x A)","1,10 x 0,53 x 0,89 m"],["Peso","65 kg"]],
     "bicicleta-vertical-voeil-a-2000":[["Capacidade de uso","160 kg"],["Resistência","15 níveis, eletromagnética"],["Programas","11 pré-definidos"],["Dimensões (C x L x A)","115 x 58 x 150 cm"],["Peso","85 kg"],["Estrutura","Aço carbono com pintura eletrostática preta"],["Assento","Ajuste simples e rápido, com 13 pontos de regulagem"],["Pedais","Grandes, com rolamentos blindados e firma-pé"],["Eletricidade","Geração eletromagnética, sem energia externa (com pré-disposição para fonte externa)"],["Display","Intuitivo, teclado tátil com tecnologia LED"],["Informações do display","Tempo, distância, RPM, resistência (carga), batimentos cardíacos, gasto calórico (calorias e METS)"],["Painel","Faixa motivacional, letras grandes, suportes para garrafa e acessórios"],["Monitoramento cardíaco","Handgrip e frequencímetro Polar"],["Garantia","12 meses contra defeitos de fabricação"]],
     "bicicleta-horizontal-voeil-a-3000":[["Capacidade de uso","160 kg"],["Resistência","15 níveis, eletromagnética"],["Programas","11 pré-definidos"],["Dimensões (C x L x A)","163 x 58 x 133 cm"],["Peso","99 kg"],["Estrutura","Aço carbono com pintura eletrostática preta"],["Assento","Ajuste simples e rápido, com 11 pontos de regulagem"],["Pedais","Grandes, com rolamentos blindados e firma-pé"],["Eletricidade","Geração eletromagnética, sem energia externa (com pré-disposição para fonte externa)"],["Display","Intuitivo, teclado tátil com tecnologia LED"],["Informações do display","Tempo, distância, RPM, resistência (carga), batimentos cardíacos, gasto calórico (calorias e METS)"],["Painel","Faixa motivacional, letras grandes, suportes para garrafa e acessórios"],["Monitoramento cardíaco","Handgrip e frequencímetro Polar"],["Garantia","12 meses contra defeitos de fabricação"]],
@@ -105,6 +110,11 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     "suportes-voeil-para-academia-anilhas-colchonetes-dumbbell-hasteres-tornozeleiras-e-puxadores":[["Material","Aço carbono"],["Acabamento","Pintura eletrostática"]]
   };
   var SEO = {
+    "anilhas-olimpicas-e-padrao":["Anilhas Olímpicas e Padrão | Vários Pesos | Kinesfit", "Anilhas olímpicas e padrão em vários pesos para academias de condomínios e empresas. Consulte pesos e quantidades com a Kinesfit."],
+    "kettlebells-de-ferro":["Kettlebells de Ferro | Vários Pesos | Kinesfit", "Kettlebells de ferro em vários pesos para treino funcional em academias de condomínios e empresas. Consulte pesos e valores com a Kinesfit."],
+    "pesos-de-pulso-e-tornozelo-couro-nautico":["Pesos de Pulso e Tornozelo | Couro Náutico | Kinesfit", "Pesos de pulso e tornozelo revestidos em couro náutico, em vários pesos, para academias de condomínios e empresas. Consulte a Kinesfit."],
+    "banco-ajustavel":["Banco Ajustável para Musculação | Kinesfit", "Banco ajustável de musculação para treinos com halteres e barras em academias de condomínios e empresas. Peça orçamento na Kinesfit."],
+    "bicicleta-de-spinning":["Bicicleta de Spinning | Ciclismo Indoor | Kinesfit", "Bicicleta de spinning para ciclismo indoor e aulas coletivas em academias de condomínios, empresas e estúdios. Peça orçamento na Kinesfit."],
     "bicicleta-spinning-voeil-a-1000":["Bicicleta Spinning Voeil A-1000 | Disco de 18 kg | Kinesfit","Bicicleta de spinning Voeil A-1000 com disco de inércia de 18 kg, transmissão por correia e estrutura em aço carbono. Peça orçamento na Kinesfit."],
     "bicicleta-vertical-voeil-a-2000":["Bicicleta Vertical Voeil A-2000 | Ergométrica | Kinesfit","Bicicleta ergométrica vertical Voeil A-2000: 15 níveis de resistência eletromagnética, 11 programas e uso até 160 kg. Peça orçamento na Kinesfit."],
     "bicicleta-horizontal-voeil-a-3000":["Bicicleta Horizontal Voeil A-3000 | Ergométrica | Kinesfit","Bicicleta ergométrica horizontal Voeil A-3000 com encosto, 15 níveis de resistência eletromagnética e 11 programas. Peça orçamento na Kinesfit."],
@@ -174,9 +184,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.31">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.32">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header(o.search) + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.31"></script>\n<script src="/assets/app.js?v=' + HOJE + '.31"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.32"></script>\n<script src="/assets/app.js?v=' + HOJE + '.32"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
