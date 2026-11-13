@@ -7,7 +7,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
   var WORD = '<span class="lw"><b>KINESFIT</b></span>';
   var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".30";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".31";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -174,9 +174,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.30">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.31">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header(o.search) + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.30"></script>\n<script src="/assets/app.js?v=' + HOJE + '.30"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.31"></script>\n<script src="/assets/app.js?v=' + HOJE + '.31"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -357,9 +357,12 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   out["assets/catalogo.js"] = "const equipamentos = " + JSON.stringify(DATA) + ";\n" + SH;
   out["enviar.php"] = PHP;
   /* produtos retirados do catálogo: a página antiga vira um aviso que leva à categoria */
-  [["magnetic-bike-bf-5150","Magnetic Bike BF 5150"],["bicicleta-ergometrica-bc-802","Bicicleta Ergométrica BC 802"]].forEach(function(r){
-    var u = SITE + "/cardio.html";
-    out["equipamentos/" + r[0] + ".html"] = '<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<title>Equipamento retirado do catálogo | Kinesfit</title>\n<meta name="robots" content="noindex, follow">\n<link rel="canonical" href="' + u + '">\n<meta http-equiv="refresh" content="0; url=' + u + '">\n<script>location.replace("' + u + '");</script>\n</head>\n<body><p>Este equipamento não está mais no catálogo. <a href="' + u + '">Ver equipamentos de cardio</a>.</p></body>\n</html>\n';
+  [["magnetic-bike-bf-5150","cardio","cardio"],["bicicleta-ergometrica-bc-802","cardio","cardio"],
+   ["7-series-peso-livre-profissional","musculacao","musculação"],["estacao-de-musculacao-uma-coluna","musculacao","musculação"],["multi-gym-com-leg-press","musculacao","musculação"],
+   ["eliptico-proteus-profissional-eec7097","cardio","cardio"],["eliptico-proteus-promaster-e12","cardio","cardio"],["eliptico-spinning-proteus-ss1","cardio","cardio"],
+   ["prancha-de-equilibrio","acessorios","acessórios"]].forEach(function(r){
+    var u = SITE + "/" + r[1] + ".html";
+    out["equipamentos/" + r[0] + ".html"] = '<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<title>Equipamento retirado do catálogo | Kinesfit</title>\n<meta name="robots" content="noindex, follow">\n<link rel="canonical" href="' + u + '">\n<meta http-equiv="refresh" content="0; url=' + u + '">\n<script>location.replace("' + u + '");</script>\n</head>\n<body><p>Este equipamento não está mais no catálogo. <a href="' + u + '">Ver equipamentos de ' + r[2] + '</a>.</p></body>\n</html>\n';
   });
   /* endereços antigos (vindos da Body Center) redirecionam para o novo */
   DATA.filter(function(p){ return p.idAntigo; }).forEach(function(p){
