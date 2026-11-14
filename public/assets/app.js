@@ -287,3 +287,5 @@ render();
 })();
 
 document.addEventListener("click", e=>{ const b=e.target.closest && e.target.closest(".thumbs button"); if(!b) return; const im=document.querySelector(".pg .pic img"); if(!im) return; im.removeAttribute("onerror"); im.src=b.dataset.full; b.parentNode.querySelectorAll("button").forEach(x=>x.classList.toggle("on", x===b)); });
+
+document.addEventListener("click", e=>{ const b=e.target.closest && e.target.closest(".p3d-tabs button"); if(!b) return; const im=document.getElementById("p3dImg"); if(!im) return; im.src=b.dataset.src; im.width=+b.dataset.w; im.height=+b.dataset.h; im.alt=b.dataset.alt; b.parentNode.querySelectorAll("button").forEach(x=>{x.classList.toggle("on",x===b); x.setAttribute("aria-selected",x===b);}); });

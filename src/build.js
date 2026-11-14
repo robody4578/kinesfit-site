@@ -7,7 +7,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
   var WORD = '<span class="lw"><b>KINESFIT</b></span>';
   var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".48";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".49";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -176,7 +176,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   function navHTML(){
     var h = '<ul><li><a class="top" href="/#equipamentos">Equipamentos</a><div class="sub">';
     S.CATS.forEach(function(c){ h += '<a href="/' + S.CAT_SLUG[c] + '.html">' + S.CAT_LABEL[c] + '</a>'; });
-    return h + '</div></li><li><a class="top" href="/projeto-de-layout.html">Projeto de layout</a></li><li><a class="top" href="/construtoras.html">Para construtoras</a></li><li><a class="top" href="/quem-somos.html">Quem somos</a></li></ul>';
+    return h + '</div></li><li><a class="top" href="/projeto-de-layout.html">Projeto de layout</a></li><li><a class="top" href="/projetos-3d.html">Projeto 3D</a></li><li><a class="top" href="/construtoras.html">Para construtoras</a></li><li><a class="top" href="/quem-somos.html">Quem somos</a></li></ul>';
   }
   var HSEARCH = '<div class="hsearch"><div class="wrap"><form action="/" method="get" role="search" id="hsForm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input type="search" name="q" id="hq" placeholder="Buscar equipamento por nome, marca ou modelo…" aria-label="Buscar equipamentos" autocomplete="off"><button type="submit">Buscar</button></form><div class="hres" id="hres" hidden></div></div></div>';
   function header(withSearch){
@@ -188,7 +188,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   }
   function footer(){
     return '<footer><div class="wrap"><div class="top"><a href="/" class="logo" aria-label="Kinesfit">' + LOGO_DARK + WORD_F + '</a>' +
-      '<ul><li><a href="/musculacao.html">Musculação</a></li><li><a href="/cardio.html">Cardio Máquinas</a></li><li><a href="/acessorios.html">Acessórios</a></li><li><a href="/projeto-de-layout.html">Projeto de layout</a></li><li><a href="/construtoras.html">Para construtoras</a></li><li><a href="/quem-somos.html">Quem somos</a></li><li><a href="/#proposta">Contato</a></li></ul></div>' +
+      '<ul><li><a href="/musculacao.html">Musculação</a></li><li><a href="/cardio.html">Cardio Máquinas</a></li><li><a href="/acessorios.html">Acessórios</a></li><li><a href="/projeto-de-layout.html">Projeto de layout</a></li><li><a href="/projetos-3d.html">Projeto 3D</a></li><li><a href="/construtoras.html">Para construtoras</a></li><li><a href="/quem-somos.html">Quem somos</a></li><li><a href="/#proposta">Contato</a></li></ul></div>' +
       '<div class="bot"><span>© <span id="ano"></span> Kinesfit. Todos os direitos reservados. · <a href="mailto:' + S.CONFIG.email + '">' + S.CONFIG.email + '</a> · WhatsApp ' + S.CONFIG.whatsappExibido + '</span><span>Todo fornecimento é feito sob orçamento.</span></div></div></footer>' +
       '<a class="wa" data-wa href="' + WAURL + '" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg></a>';
   }
@@ -203,9 +203,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.48">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.49">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header(o.search) + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.48"></script>\n<script src="/assets/app.js?v=' + HOJE + '.48"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.49"></script>\n<script src="/assets/app.js?v=' + HOJE + '.49"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -375,6 +375,40 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   /* ---------- quem somos e construtoras ---------- */
   function cards4(list, nonum){ return '<div class="steps">' + list.map(function(c,i){ return '<div class="step">' + (nonum ? '' : '<b class="n">' + (i+1) + '</b>') + '<h3>' + esc(c[0]) + '</h3><p>' + esc(c[1]) + '</p></div>'; }).join("") + '</div>'; }
   var WACONS = S.waLink("Olá! Sou de uma construtora e gostaria de uma proposta de equipamentos para a sala fitness de um empreendimento.");
+  /* ---------- projetos 3D ---------- */
+  (function(){
+    var cr = [["Início","/"],["Projeto 3D","/projetos-3d.html"]];
+    var A = "/assets/projeto3d/";
+    var vistas = [["perspectiva","Perspectiva","perspectiva.jpg",1600,1100,"Render 3D em perspectiva de uma sala fitness de 7,00 por 3,50 m com duas esteiras, bike, estação de musculação e área de alongamento"],
+      ["interna","Vista interna","vista-interna.jpg",1600,1100,"Render 3D da vista interna da sala fitness, com as esteiras de frente para o painel na parede"],
+      ["superior","Superior","superior.jpg",1200,800,"Render 3D da sala fitness vista de cima, com a distribuição dos equipamentos"],
+      ["planta","Planta original","planta.jpg",1200,1220,"Planta baixa da sala fitness com os equipamentos numerados e as medidas"]];
+    var tabs = vistas.map(function(v,i){ return '<button type="button" role="tab" class="' + (i===0?'on':'') + '" aria-selected="' + (i===0) + '" data-src="' + A + v[2] + '" data-w="' + v[3] + '" data-h="' + v[4] + '" data-alt="' + esc(v[5]) + '">' + v[1] + '</button>'; }).join("");
+    var WA3 = S.waLink("Olá! Gostaria de um projeto 3D da sala fitness do meu espaço.");
+    var body = '<main><div class="phead"><div class="wrap">' + crumb(cr) + '<div class="eyebrow">Serviço</div><h1>Projeto 3D da sua sala fitness</h1>' +
+      '<p>Antes de comprar, veja a sala pronta: a Kinesfit monta o layout em escala e gera imagens em 3D com os equipamentos no seu espaço, para você, o condomínio ou o cliente aprovarem o projeto.</p>' +
+      '<div class="lay-hero-acts"><a class="btn btn-primary" href="/projeto-de-layout.html#enviar-planta">' + MAILI + 'Enviar a planta</a><a class="btn btn-line" href="' + WA3 + '" target="_blank" rel="noopener">' + WAI + 'Falar pelo WhatsApp</a></div></div></div>' +
+      '<section><div class="wrap"><div class="sec-head"><div class="eyebrow">Exemplo</div><h2>Sala fitness compacta com painel de parede</h2>' +
+      '<p>Sala de 7,00 × 3,50 m (24,5 m²) com duas esteiras de frente para um painel de trilha no bosque, bike de spinning, estação Cross + Smith, torre de halteres e área de alongamento.</p></div>' +
+      '<div class="p3d"><div class="p3d-tabs" role="tablist" aria-label="Vistas do projeto">' + tabs + '</div>' +
+      '<div class="p3d-view"><img id="p3dImg" src="' + A + vistas[0][2] + '" width="' + vistas[0][3] + '" height="' + vistas[0][4] + '" alt="' + esc(vistas[0][5]) + '"></div></div>' +
+      '<ul class="p3d-spec"><li><b>7,00 × 3,50 m</b><span>dimensões da sala</span></li><li><b>24,5 m²</b><span>área</span></li><li><b>10</b><span>itens no projeto</span></li><li><b>2,60 m</b><span>pé-direito considerado</span></li></ul>' +
+      '<p class="p3d-note">Imagens em escala métrica. Medidas dos equipamentos de referência, a confirmar no local.</p></div></section>' +
+      '<section class="how"><div class="wrap"><div class="sec-head"><div class="eyebrow">Como funciona</div><h2>Do envio da planta ao projeto 3D</h2></div>' +
+      cards4([
+        ["Envie a planta","Planta, croqui ou só as medidas da sala, com a posição de portas, janelas e pontos de energia."],
+        ["Montamos o layout","Distribuição dos equipamentos em escala, com circulação e áreas de uso."],
+        ["Geramos o 3D","Perspectiva, vista interna e vista superior, junto com a planta numerada e a lista de itens."],
+        ["Ajustamos e orçamos","Trocamos modelos e posições até a aprovação e enviamos a proposta de fornecimento."]
+      ]) + '</div></section>' +
+      '<section><div class="wrap"><div class="sec-head"><div class="eyebrow">Para quem</div><h2>Ideal para vender e aprovar a sala</h2>' +
+      '<p>Construtoras e incorporadoras podem usar as imagens no material de vendas e no memorial do empreendimento. Condomínios e empresas aprovam o projeto em assembleia ou diretoria antes da compra. Peça o projeto 3D junto com o orçamento.</p>' +
+      '<div class="lay-hero-acts"><a class="btn btn-primary" href="/projeto-de-layout.html#enviar-planta">' + MAILI + 'Enviar a planta</a><a class="btn btn-line" href="/projeto-de-layout.html">Ver projeto de layout</a></div></div></div></section></main>';
+    page({path:"/projetos-3d.html", title:"Projeto 3D de Sala Fitness para Condomínio e Construtora | Kinesfit",
+      desc:"Veja a sala fitness em 3D antes de comprar: layout em escala, perspectiva, vista interna e vista superior com os equipamentos no seu espaço.",
+      body:body, ld:[crumbLD(cr)]});
+  })();
+
   (function(){
     var cr = [["Início","/"],["Quem somos","/quem-somos.html"]];
     var body = '<main><div class="phead"><div class="wrap">' + crumb(cr) + '<div class="eyebrow">Institucional</div><h1>Quem somos</h1>' +
@@ -436,7 +470,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     body:'<main><div class="phead"><div class="wrap"><div class="eyebrow">Orçamento</div><h1>Meu orçamento</h1><p>Confira os itens, ajuste quantidades e modelos e envie o pedido por e-mail ou WhatsApp.</p></div></div><section class="contato" style="padding:40px 0 70px"><div class="wrap"><div id="orcForm" style="max-width:760px;margin:0 auto"><noscript><p>Ative o JavaScript ou envie um e-mail para <a href="mailto:' + S.CONFIG.email + '">' + S.CONFIG.email + '</a>.</p></noscript></div></div></section></main>'});
 
   /* ---------- arquivos de apoio ---------- */
-  var urls = ["/"].concat(S.CATS.map(function(c){ return "/" + S.CAT_SLUG[c] + ".html"; })).concat(["/projeto-de-layout.html","/construtoras.html","/quem-somos.html"]).concat(DATA.map(S.pUrl));
+  var urls = ["/"].concat(S.CATS.map(function(c){ return "/" + S.CAT_SLUG[c] + ".html"; })).concat(["/projeto-de-layout.html","/projetos-3d.html","/construtoras.html","/quem-somos.html"]).concat(DATA.map(S.pUrl));
   out["sitemap.xml"] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     urls.map(function(u,i){ return '<url><loc>' + SITE + u + '</loc><lastmod>' + HOJE + '</lastmod><priority>' + (i===0 ? "1.0" : i<4 ? "0.8" : "0.6") + '</priority></url>'; }).join("\n") + '\n</urlset>\n';
   out["robots.txt"] = "User-agent: *\nAllow: /\nDisallow: /orcamento.html\nDisallow: /enviar.php\nDisallow: /enviar-planta.php\n\nSitemap: " + SITE + "/sitemap.xml\n";
