@@ -7,7 +7,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
   var WORD = '<span class="lw"><b>KINESFIT</b></span>';
   var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".44";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".45";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -30,6 +30,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var ESPEC = {
     "anilhas-olimpicas-e-padrao":[["Tipos", "Olímpicas e padrão"], ["Pesos", "Vários, sob consulta"]],
     "step-profissional-regulavel-voeil":[["Marca", "Voeil"], ["Material", "Plástico de alta resistência"], ["Comprimento x largura", "97 x 37 cm"], ["Alturas", "10, 15 e 20 cm"], ["Ajuste", "Pés removíveis"], ["Cor", "Preto com detalhes em cinza"]],
+    "bicicleta-ergometrica-polibike-4600":[["Tipo", "Bicicleta ergométrica vertical"], ["Painel", "Com visor e botão de controle"]],
     "kettlebells-de-ferro":[["Material", "Ferro"], ["Pesos", "Vários, sob consulta"]],
     "pesos-de-pulso-e-tornozelo-couro-nautico":[["Revestimento", "Couro náutico"], ["Pesos", "Vários, sob consulta"]],
     "banco-ajustavel":[["Tipo", "Banco ajustável"]],
@@ -113,6 +114,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var SEO = {
     "anilhas-olimpicas-e-padrao":["Anilhas Olímpicas e Padrão | Vários Pesos | Kinesfit", "Anilhas olímpicas e padrão em vários pesos para academias de condomínios e empresas. Consulte pesos e quantidades com a Kinesfit."],
     "step-profissional-regulavel-voeil":["Step Profissional Regulável Voeil | Kinesfit", "Step profissional regulável em altura, com superfície antiderrapante, para aulas coletivas e treino funcional em academias de condomínios e empresas. Peça orçamento à Kinesfit."],
+    "bicicleta-ergometrica-polibike-4600":["Bicicleta Ergométrica Polibike 4600 | Cardio | Kinesfit", "Bicicleta ergométrica vertical Polibike 4600 para academias de condomínios e empresas. Veja as fotos do equipamento e do painel e peça orçamento à Kinesfit."],
     "kettlebells-de-ferro":["Kettlebells de Ferro | Vários Pesos | Kinesfit", "Kettlebells de ferro em vários pesos para treino funcional em academias de condomínios e empresas. Consulte pesos e valores com a Kinesfit."],
     "pesos-de-pulso-e-tornozelo-couro-nautico":["Pesos de Pulso e Tornozelo | Couro Náutico | Kinesfit", "Pesos de pulso e tornozelo revestidos em couro náutico, em vários pesos, para academias de condomínios e empresas. Consulte a Kinesfit."],
     "banco-ajustavel":["Banco Ajustável para Musculação | Kinesfit", "Banco ajustável de musculação para treinos com halteres e barras em academias de condomínios e empresas. Peça orçamento na Kinesfit."],
@@ -129,6 +131,16 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     (ESPEC[p.id]||[]).forEach(function(x){ r.push(x); });
     r.push(["Fornecimento", "Sob orçamento"]);
     return r;
+  }
+  function galeria(p){
+    var ex = p.extra || []; if(!ex.length) return "";
+    var main = S.localImg(p);
+    return '<div class="thumbs" role="group" aria-label="Fotos do produto"><button type="button" class="on" data-full="' + esc(main) + '" aria-label="Ver foto do equipamento"><img src="' + esc(main) + '" alt="" loading="lazy" width="84" height="84"></button>' +
+      ex.map(function(u,i){ return '<button type="button" data-full="' + esc(u) + '" aria-label="Ver foto ' + (i+2) + '"><img src="' + esc(u) + '" alt="" loading="lazy" width="84" height="84"></button>'; }).join("") + '</div>';
+  }
+  function vid(p){
+    if(!p.video) return "";
+    return '<video class="pvideo" controls playsinline preload="metadata"' + (p.poster ? ' poster="' + esc(p.poster) + '"' : '') + '><source src="' + esc(p.video) + '" type="video/mp4">Seu navegador não reproduz este vídeo.</video>';
   }
   function descProd(p){
     if(SEO[p.id]) return SEO[p.id][1];
@@ -186,9 +198,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.44">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.45">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header(o.search) + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.44"></script>\n<script src="/assets/app.js?v=' + HOJE + '.44"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.45"></script>\n<script src="/assets/app.js?v=' + HOJE + '.45"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
@@ -301,7 +313,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     ];
     var rel = relacionados(p);
     var body = '<main><div class="wrap">' + crumb(cr) + '</div><div class="pg"><div class="wrap"><div class="cols">' +
-      '<div class="pic">' + S.imgTag(p, S.altText(p), 'width="430" height="430"') + '</div>' +
+      '<div class="picwrap"><div class="pic">' + S.imgTag(p, S.altText(p), 'width="430" height="430"') + '</div>' + galeria(p) + vid(p) + '</div>' +
       '<div><span class="tag">' + esc(p.sub) + '</span><h1>' + esc(p.nome) + '</h1>' + brand + '<div class="pg-preco">' + S.precoHTML(p) + '</div>' +
       '<p class="lead">' + esc(lead) + '</p><p>' + esc(para2) + '</p>' +
       '<div class="cta"><button type="button" class="b-orc" data-add="' + esc(p.id) + '" data-lbl="+ Adicionar à lista de orçamento">+ Adicionar à lista de orçamento</button><a class="btn btn-line" style="border-color:var(--grafite);color:var(--grafite)" href="' + WAURL + '" data-wa target="_blank" rel="noopener">Falar no WhatsApp</a></div>' +
@@ -309,7 +321,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<div class="pgx"><div class="wrap"><div class="prose"><h2>Ficha do equipamento</h2><table class="spec"><tbody>' + rows + '</tbody></table>' +
       '<h2>Dúvidas sobre ' + esc(p.nome) + '</h2>' + faqHTML(faq) + '</div></div></div>' +
       '<section class="rel"><div class="wrap"><h2>Outros equipamentos que podem interessar</h2><div class="grid">' + rel.map(S.cardHTML).join("") + '</div></div></section></main>';
-    var ld = [crumbLD(cr), {"@context":"https://schema.org","@type":"Product","name":p.nome,"description":descProd(p),"image":[absImg(p)],"sku":p.id,"category":S.CAT_LABEL[cat] + " > " + p.sub,"url":SITE+path}];
+    var ld = [crumbLD(cr), {"@context":"https://schema.org","@type":"Product","name":p.nome,"description":descProd(p),"image":[absImg(p)].concat((p.extra||[]).map(function(u){ return SITE + u; })),"sku":p.id,"category":S.CAT_LABEL[cat] + " > " + p.sub,"url":SITE+path}];
     if(p.marca) ld[1].brand = {"@type":"Brand","name":p.marca};
     if(p.preco) ld[1].offers = {"@type":"Offer","price":p.preco,"priceCurrency":"BRL","url":SITE+path};
     page({path:path, title:tituloProd(p), desc:descProd(p), body:body, ld:ld, image:absImg(p), ogType:"product"});
@@ -432,7 +444,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   [["magnetic-bike-bf-5150","cardio","cardio"],["bicicleta-ergometrica-bc-802","cardio","cardio"],
    ["7-series-peso-livre-profissional","musculacao","musculação"],["estacao-de-musculacao-uma-coluna","musculacao","musculação"],["multi-gym-com-leg-press","musculacao","musculação"],
    ["eliptico-proteus-profissional-eec7097","cardio","cardio"],["eliptico-proteus-promaster-e12","cardio","cardio"],["eliptico-spinning-proteus-ss1","cardio","cardio"],
-   ["prancha-de-equilibrio","acessorios","acessórios"],["bola-queens","acessorios","acessórios"]].forEach(function(r){
+   ["prancha-de-equilibrio","acessorios","acessórios"],["bola-queens","acessorios","acessórios"],["bicicleta-de-spinning","cardio","cardio"]].forEach(function(r){
     var u = SITE + "/" + r[1] + ".html";
     out["equipamentos/" + r[0] + ".html"] = '<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<title>Equipamento retirado do catálogo | Kinesfit</title>\n<meta name="robots" content="noindex, follow">\n<link rel="canonical" href="' + u + '">\n<meta http-equiv="refresh" content="0; url=' + u + '">\n<script>location.replace("' + u + '");</script>\n</head>\n<body><p>Este equipamento não está mais no catálogo. <a href="' + u + '">Ver equipamentos de ' + r[2] + '</a>.</p></body>\n</html>\n';
   });
