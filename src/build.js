@@ -7,7 +7,7 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
   var LOGO = SYM("#25282A"), LOGO_DARK = SYM("#F6F3ED");
   var WORD = '<span class="lw"><b>KINESFIT</b></span>';
   var WORD_F = '<span class="lw"><b>KINESFIT</b><small>Equipamentos fitness</small></span>';
-  var FAV = "/assets/favicon.svg?v=" + HOJE + ".45";
+  var FAV = "/assets/favicon.svg?v=" + HOJE + ".47";
   var WAI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>';
   var MAILI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
   var WAURL = S.waLink("Olá! Gostaria de solicitar um orçamento de equipamentos fitness.");
@@ -31,6 +31,8 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     "anilhas-olimpicas-e-padrao":[["Tipos", "Olímpicas e padrão"], ["Pesos", "Vários, sob consulta"]],
     "step-profissional-regulavel-voeil":[["Marca", "Voeil"], ["Material", "Plástico de alta resistência"], ["Comprimento x largura", "97 x 37 cm"], ["Alturas", "10, 15 e 20 cm"], ["Ajuste", "Pés removíveis"], ["Cor", "Preto com detalhes em cinza"]],
     "bicicleta-ergometrica-polibike-4600":[["Tipo", "Bicicleta ergométrica vertical"], ["Painel", "Com visor e botão de controle"]],
+    "espaldar-madeira-de-lei-voeil-vesp-2000":[["Estrutura", "Madeira de lei (peroba vermelha ou tauari)"], ["Bastões", "12 bastões de garapeira, 3,5 cm de diâmetro"], ["Tamanho padrão (A x L x P)", "2,40 x 0,90 x 0,55 m"], ["Peso máximo do usuário", "120 kg"], ["Instalação", "Somente em parede de alvenaria"]],
+    "espaldar-madeira-pinho-voeil-vesp-1000":[["Estrutura", "Madeira de reflorestamento (pinus)"], ["Bastões", "11 bastões de garapeira, 3,5 cm de diâmetro"], ["Tamanho padrão (A x L x P)", "2,30 x 0,89 x 0,39 m"], ["Peso máximo do usuário", "100 kg"], ["Fabricação", "Também sob medida"], ["Instalação", "Somente em parede de alvenaria"]],
     "kettlebells-de-ferro":[["Material", "Ferro"], ["Pesos", "Vários, sob consulta"]],
     "pesos-de-pulso-e-tornozelo-couro-nautico":[["Revestimento", "Couro náutico"], ["Pesos", "Vários, sob consulta"]],
     "banco-ajustavel":[["Tipo", "Banco ajustável"]],
@@ -115,6 +117,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
     "anilhas-olimpicas-e-padrao":["Anilhas Olímpicas e Padrão | Vários Pesos | Kinesfit", "Anilhas olímpicas e padrão em vários pesos para academias de condomínios e empresas. Consulte pesos e quantidades com a Kinesfit."],
     "step-profissional-regulavel-voeil":["Step Profissional Regulável Voeil | Kinesfit", "Step profissional regulável em altura, com superfície antiderrapante, para aulas coletivas e treino funcional em academias de condomínios e empresas. Peça orçamento à Kinesfit."],
     "bicicleta-ergometrica-polibike-4600":["Bicicleta Ergométrica Polibike 4600 | Cardio | Kinesfit", "Bicicleta ergométrica vertical Polibike 4600 para academias de condomínios e empresas. Veja as fotos do equipamento e do painel e peça orçamento à Kinesfit."],
+    "espaldar-aco":["Espaldar de Aço Voeil VPL-05 | Parede | Kinesfit", "Espaldar de parede Voeil VPL-05 em aço carbono com solda MIG e pintura eletrostática, 0,50 x 1,00 x 2,20 m, para academias e condomínios. Peça orçamento à Kinesfit."],
+    "espaldar-madeira-de-lei-voeil-vesp-2000":["Espaldar de Madeira de Lei Voeil VESP 2000 | Kinesfit", "Espaldar de madeira de lei Voeil VESP 2000 com 12 bastões de garapeira, 2,40 m de altura, para alongamento e postura em condomínios, estúdios e clínicas. Peça orçamento."],
+    "espaldar-madeira-pinho-voeil-vesp-1000":["Espaldar de Madeira Pinho Voeil VESP 1000 | Kinesfit", "Espaldar de pinus Voeil VESP 1000 com 11 bastões de garapeira, 2,30 m de altura, para alongamento, postura e fisioterapia. Também sob medida. Peça orçamento."],
     "kettlebells-de-ferro":["Kettlebells de Ferro | Vários Pesos | Kinesfit", "Kettlebells de ferro em vários pesos para treino funcional em academias de condomínios e empresas. Consulte pesos e valores com a Kinesfit."],
     "pesos-de-pulso-e-tornozelo-couro-nautico":["Pesos de Pulso e Tornozelo | Couro Náutico | Kinesfit", "Pesos de pulso e tornozelo revestidos em couro náutico, em vários pesos, para academias de condomínios e empresas. Consulte a Kinesfit."],
     "banco-ajustavel":["Banco Ajustável para Musculação | Kinesfit", "Banco ajustável de musculação para treinos com halteres e barras em academias de condomínios e empresas. Peça orçamento na Kinesfit."],
@@ -198,9 +203,9 @@ function kfBuild(DATA, SH, CSS, APP, PHP, HOJE){
       '<meta property="og:image" content="' + (o.image||OGIMG) + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
       '<link rel="icon" href="' + FAV + '" type="image/svg+xml">\n<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">\n' +
-      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.45">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
+      IMGFAIL + '\n<link rel="stylesheet" href="/assets/site.css?v=' + HOJE + '.47">\n' + (o.ld||[]).map(J).join("\n") + '\n</head>\n<body>\n' +
       header(o.search) + '\n' + o.body + '\n' + footer() +
-      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.45"></script>\n<script src="/assets/app.js?v=' + HOJE + '.45"></script>\n</body>\n</html>\n';
+      '\n<script src="/assets/catalogo.js?v=' + HOJE + '.47"></script>\n<script src="/assets/app.js?v=' + HOJE + '.47"></script>\n</body>\n</html>\n';
     out[o.path === "/" ? "index.html" : o.path.slice(1)] = h;
   }
   function crumb(list){
