@@ -285,3 +285,5 @@ if(hasForm){ $("#dGo").href = "#orcForm"; }
 renderForm();
 render();
 })();
+
+document.addEventListener("click", e=>{ const b=e.target.closest && e.target.closest(".thumbs button"); if(!b) return; const im=document.querySelector(".pg .pic img"); if(!im) return; im.removeAttribute("onerror"); im.src=b.dataset.full; b.parentNode.querySelectorAll("button").forEach(x=>x.classList.toggle("on", x===b)); });
